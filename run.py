@@ -89,8 +89,15 @@ def enter_name():
     print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
     print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS :")
     print("GOOD LUCK.\n")
-    user_name = input("Enter your name to start: ")
-    return user_name
+    user_name = input("Enter x to start: ")
+    
+    
+    if user_name == "x":
+        print("nice!")
+    else:
+        print("try again!")
+        enter_name()
+    
 
 
 
@@ -98,3 +105,4 @@ def enter_name():
 
 game_start()
 enter_name()
+
