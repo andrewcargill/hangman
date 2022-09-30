@@ -52,8 +52,8 @@ HANGMAN = ['''
        |     -   - 
     #==#==#''']
 
-for x in range(len(HANGMAN)):
-    print(HANGMAN[x])
+#for x in range(len(HANGMAN)):
+#    print(HANGMAN[x])
 
 class game_start():
     game_start_graphic = '''
@@ -87,14 +87,15 @@ MMM      MMM  AAA    AAA   NNN.     NNNN    |     -   -
 
 def enter_name():
     print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
-    print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS :")
+    print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS!")
     print("GOOD LUCK.\n")
 
     
 def game_start_input():
     while True:
-        game_start = input("Enter 'E' for easy or 'H' for hard: ")
-        print(game_start)
+
+        game_start = input("To start: Enter 'E' for easy or 'H' for hard: ")
+
         if game_start.lower() == "h":
             print("lets go!")
             begin_game = load_game()
@@ -107,8 +108,16 @@ def game_start_input():
 
 def load_game():
     
-    begin_game = ".......The hard Game will now load!"
-    print(begin_game)
+    graphic = HANGMAN
+    print(graphic[0])
+    line_break = "\n"
+    word_text = "Here's the word to guess:    "
+    magic_word = "- - - - - - - -"
+    print(line_break + word_text + magic_word + line_break)
+    wrong_guesses_text = "Wrong guesses: \n"
+    wrong_guesses ="A B C"
+    print(wrong_guesses_text + wrong_guesses + line_break)
+    guess = input("Choose a letter:  ")
 
 
 game_start()
