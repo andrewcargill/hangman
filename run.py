@@ -52,8 +52,8 @@ HANGMAN = ['''
        |     -   - 
     #==#==#''']
 
-#for x in range(len(HANGMAN)):
-#    print(HANGMAN[x])
+for x in range(len(HANGMAN)):
+    print(HANGMAN[x])
 
 class game_start():
     game_start_graphic = '''
@@ -89,20 +89,30 @@ def enter_name():
     print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
     print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS :")
     print("GOOD LUCK.\n")
-    user_name = input("Enter x to start: ")
+
     
-    
-    if user_name == "x":
-        print("nice!")
-    else:
-        print("try again!")
-        enter_name()
-    
+def game_start_input():
+    while True:
+        game_start = input("Enter 'E' for easy or 'H' for hard: ")
+        if game_start == "h":
+            print("lets go!")
+            begin_game = load_game(x)
+            return True
+        elif game_start =="e":
+            print("you choose easy game!")
+        else:
+            print("Try again idiot!")
 
 
-
+def load_game(x):
+    begin_game = ".......The hard Game will now load!"
+    print(begin_game)
 
 
 game_start()
 enter_name()
+game_start_input()
+
+
+
 
