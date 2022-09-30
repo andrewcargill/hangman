@@ -1,3 +1,17 @@
+import random
+
+# this is where all words are stored  
+word_bank = ["beaf", "tomorrow", "yesterday"]
+
+def random_word():
+    magic_word = random.choice(word_bank)
+    magic_word_list = []
+    for letter in magic_word:
+        magic_word_list.append(letter)
+
+    print(magic_word_list)
+
+
 # Your code goes here.
 # You can delete these comments, but do not change the name of this file
 # Write your code to expect a terminal of 80 characters wide and 24 rows high
@@ -106,19 +120,33 @@ def game_start_input():
             print("Try again idiot!")
 
 
+
 def load_game():
-    
+    """
+    1. A function that generates a word in 'magic_word'
+    2. A function that listens to the 'guess'
+    3. A function that steps the index of 'graphic' if wrong
+    4. A function that updates 'wrong_guesses' with wrong letters
+    5. A function that updates 'magic_word'
+    """
+    random_word()
     graphic = HANGMAN
     print(graphic[0])
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    magic_word = "- - - - - - - -"
+    magic_word = "------"
     print(line_break + word_text + magic_word + line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
     print(wrong_guesses_text + wrong_guesses + line_break)
     guess = input("Choose a letter:  ")
 
+
+
+
+"""
+This functions start the game
+"""
 
 game_start()
 enter_name()
