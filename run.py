@@ -94,17 +94,19 @@ def enter_name():
 def game_start_input():
     while True:
         game_start = input("Enter 'E' for easy or 'H' for hard: ")
-        if game_start == "h":
+        print(game_start)
+        if game_start.lower() == "h":
             print("lets go!")
-            begin_game = load_game(x)
+            begin_game = load_game()
             return True
-        elif game_start =="e":
+        elif game_start.lower() == "e":
             print("you choose easy game!")
         else:
             print("Try again idiot!")
 
 
-def load_game(x):
+def load_game():
+    
     begin_game = ".......The hard Game will now load!"
     print(begin_game)
 
