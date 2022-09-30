@@ -52,11 +52,16 @@ HANGMAN = ['''
        |     -   - 
     #==#==#''']
 
-for x in range(len(HANGMAN)):
-    print(HANGMAN[x])
+#for x in range(len(HANGMAN)):
+#    print(HANGMAN[x])
 
-GRAPHIC = '''
-—————————————————————————————————————————————————————
+class game_start():
+    game_start_graphic = '''
+              @                        @         @ 
+    @        @@                       @@        @@  
+   @@       @@@@                     @@@@      @@@@ 
+   ||        ||                       ||        ||
+——————  W E L C O M E   T O   H A R R Y ' S  —————————
 
 HHH      HHH      AAA      NNN       NNN      GGGGG
 HHH      HHH    AAA AAA    NNN N     NNN    GGG    GGG
@@ -73,11 +78,23 @@ MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |      /|\
 MMM      MMM  AAA    AAA   NNN    N  NNN    |       |
 MMM      MMM  AAA    AAA   NNN     N NNN    |      / \ 
 MMM      MMM  AAA    AAA   NNN.     NNNN    |     -   -  
+                                            |
+#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#
+
+\n'''
+    print(game_start_graphic)
 
 
- ——————————————CREATED BY ANDREW CARGILL———————————
- 
- 
- '''
+def enter_name():
+    print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
+    print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS :")
+    print("GOOD LUCK.\n")
+    user_name = input("Enter your name to start: ")
+    return user_name
 
-print(GRAPHIC)
+
+
+
+
+game_start()
+enter_name()
