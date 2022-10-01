@@ -27,7 +27,6 @@ def random_word():
 
     return magic_word,magic_word_list,magic_word_length
 
-#magic_word, magic_word_list, magic_word_length = random_word()
 
 #Guess list references the magic word list
 
