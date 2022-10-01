@@ -1,7 +1,7 @@
 import random
 
 # this is where all words are stored  
-word_bank = ["bee", "bill", "teddy"]
+word_bank = ["bee", "ed", "teddy", "f3efd", "gggg", "tterer", "fffff"]
 
 #A blank list that will show any correct letters
 guess_list = ["- ", "- ", "- ", "- ", "- "]
@@ -12,19 +12,21 @@ def random_word():
     magic_word_list = []
     for letter in magic_word:
         magic_word_list.append(letter)
-    return magic_word,magic_word_list 
+        magic_word_length = len(magic_word_list)
 
-magic_word, magic_word_list = random_word()
+    return magic_word,magic_word_list,magic_word_length
+
+magic_word, magic_word_list, magic_word_length = random_word()
 
 #Guess list references the magic word list
-def magic_word_display():
+#def magic_word_display():
     # cuts the guess_list to length of magic_word
-    x = len(magic_word_list)
+  #  x = len(magic_word_list)
     
 #for i in range(0, guess_list - x):
 #        guess_list.pop()
-    print(x)
-    print(guess_list[0:x])
+#   print(x)
+#    print(guess_list[0:x])
 
 
 
@@ -122,7 +124,7 @@ MMM M  M MMM   AAA   AAA   NNN  N    NNN    |       0
 MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |      /|\  
 MMM      MMM  AAA    AAA   NNN    N  NNN    |       |
 MMM      MMM  AAA    AAA   NNN     N NNN    |      / \ 
-MMM      MMM  AAA    AAA   NNN.     NNNN    |     -   -  
+MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -  
                                             |
 #==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#
 
@@ -160,14 +162,14 @@ def load_game():
     5. A function that updates 'magic_word'
     """
     random_word()
-    magic_word,magic_word_list = random_word()
+    magic_word,magic_word_list,magic_word_length = random_word()
     graphic = HANGMAN
     print(graphic[0])
     line_break = "\n"
     word_text = "Here's the word to guess:    "
     magic_word = magic_word #for testing
     print(magic_word_list) #for testing
-    magic_word_display() # for testing (prints the blank word)
+    print(magic_word_length) #for testing
     print(line_break + word_text + magic_word + line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
