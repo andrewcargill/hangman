@@ -1,10 +1,12 @@
 import random
 
 # this is where all words are stored  
-word_bank = ["beaf", "tomorrow", "yesterday"]
+word_bank = ["bee", "bill", "teddy"]
 
-guess_list = ["- ", "- ", "- ", "- ", "- ",]
+#A blank list that will show any correct letters
+guess_list = ["- ", "- ", "- ", "- ", "- "]
 
+#Generates a random word and breaks down into a list of letters
 def random_word():
     magic_word = random.choice(word_bank)
     magic_word_list = []
@@ -14,11 +16,15 @@ def random_word():
 
 magic_word, magic_word_list = random_word()
 
-def magic_word_display(magic_word_list, guess_list):
+#Guess list references the magic word list
+def magic_word_display():
+    # cuts the guess_list to length of magic_word
     x = len(magic_word_list)
-    for i in range(0, guess_list - x):
-        guess_list.pop()
-    print(guess_list)
+    
+#for i in range(0, guess_list - x):
+#        guess_list.pop()
+    print(x)
+    print(guess_list[0:x])
 
 
 
@@ -32,9 +38,14 @@ def magic_word_display(magic_word_list, guess_list):
 
 
 
-# Your code goes here.
-# You can delete these comments, but do not change the name of this file
-# Write your code to expect a terminal of 80 characters wide and 24 rows high
+"""
+Using a blank list as a display and then
+referencing the random word. 
+
+getting results back in terminal. but not correct. 
+
+check order that things are being calculated
+"""
 
 HANGMAN = ['''
         _ _ _ _
@@ -154,7 +165,9 @@ def load_game():
     print(graphic[0])
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    magic_word = magic_word
+    magic_word = magic_word #for testing
+    print(magic_word_list) #for testing
+    magic_word_display() # for testing (prints the blank word)
     print(line_break + word_text + magic_word + line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
