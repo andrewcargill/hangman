@@ -90,10 +90,10 @@ def enter_name():
 
 
 # this is where all words are stored  
-word_bank = ["bee", "ed", "teddy", "f3efd", "gggg", "tterer", "fffff", "1", "2222222"]
+word_bank = ["ramble", "tan", "pick", "run", "distance", "today", "thanks", "plant", "insect"]
 
 #A blank list that will show any correct letters
-guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- "]
+guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 
 #Generates a random word and breaks down into a list of letters
 def random_word():
@@ -107,14 +107,22 @@ def random_word():
     return magic_word,magic_word_list,magic_word_length
 
 
-#Guess list references the magic word list
-
+#Creates a display of the word without letters
 def word_display(x):
     n = len(guess_list)
     for i in range(0, n - x):
         guess_list.pop()
     return guess_list
  
+def user_guess(guess, answer, display_word):
+    guess = guess.lower()  #Players guess letter
+    letter_index = answer.index(guess) #find index number of letter in word
+    display_word[letter_index] = guess #updates the display_word
+    
+    print(guess) #Testing: index of letters in word
+    print("TEST: you guessed: " + guess) #testing: letter guessed
+    print(answer) #testing: the word
+    print(display_word) #testing: the current display
 
 ## Start game input   
 def game_start_input():
@@ -150,14 +158,19 @@ def load_game():
     line_break = "\n"
     word_text = "Here's the word to guess:    "
     magic_word = magic_word #for testing
-    print(magic_word_list) #for testing
-    print(magic_word_length) #for testing
-    print(word_display(magic_word_length))
-    print(line_break + word_text + magic_word + line_break)
+    print("TESTING this is the magic_word:  " + magic_word) #for testing
+    print(magic_word_list) #for testing (this is a list of the word)
+    print(magic_word_length) #for testing (this is how many characters)
+    print(line_break + word_text + line_break)
+    word = word_display(magic_word_length) #for testing (word displayed)
+    print(word)
+    print(line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
     print(wrong_guesses_text + wrong_guesses + line_break)
     guess = input("Choose a letter:  ")
+    print(line_break)
+    user_guess(guess, magic_word_list, word)
 
 """
 This functions starts the game
