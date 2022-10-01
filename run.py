@@ -3,42 +3,6 @@ import random
 # this is where all words are stored  
 word_bank = ["bee", "ed", "teddy", "f3efd", "gggg", "tterer", "fffff"]
 
-#A blank list that will show any correct letters
-guess_list = ["- ", "- ", "- ", "- ", "- "]
-
-#Generates a random word and breaks down into a list of letters
-def random_word():
-    magic_word = random.choice(word_bank)
-    magic_word_list = []
-    for letter in magic_word:
-        magic_word_list.append(letter)
-        magic_word_length = len(magic_word_list)
-
-    return magic_word,magic_word_list,magic_word_length
-
-magic_word, magic_word_list, magic_word_length = random_word()
-
-#Guess list references the magic word list
-#def magic_word_display():
-    # cuts the guess_list to length of magic_word
-  #  x = len(magic_word_list)
-    
-#for i in range(0, guess_list - x):
-#        guess_list.pop()
-#   print(x)
-#    print(guess_list[0:x])
-
-
-
-
-
-
-
-
-
-
-
-
 
 """
 Using a blank list as a display and then
@@ -48,6 +12,40 @@ getting results back in terminal. but not correct.
 
 check order that things are being calculated
 """
+
+#A blank list that will show any correct letters
+guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- "]
+
+#Generates a random word and breaks down into a list of letters
+def random_word():
+    magic_word = random.choice(word_bank)
+    magic_word_list = []
+    for letter in magic_word:
+        magic_word_list.append(letter)
+        magic_word_length = len(magic_word_list)
+
+
+    return magic_word,magic_word_list,magic_word_length
+
+#magic_word, magic_word_list, magic_word_length = random_word()
+
+#Guess list references the magic word list
+
+#def word_display():
+#            magic_word_length = random_word()
+#            n = len(guess_list)
+#            for i in range(0, n - magic_word_length):
+#                guess_list.pop()
+#            return guess_list, n 
+
+
+
+
+
+
+
+
+
 
 HANGMAN = ['''
         _ _ _ _
@@ -155,7 +153,7 @@ def game_start_input():
 ## Displays game elements
 def load_game():
     """
-    1. A function that generates a word in 'magic_word'
+    1. # A function that generates a word in 'magic_word'
     2. A function that listens to the 'guess'
     3. A function that steps the index of 'graphic' if wrong
     4. A function that updates 'wrong_guesses' with wrong letters
@@ -163,6 +161,7 @@ def load_game():
     """
     random_word()
     magic_word,magic_word_list,magic_word_length = random_word()
+    
     graphic = HANGMAN
     print(graphic[0])
     line_break = "\n"
@@ -170,6 +169,7 @@ def load_game():
     magic_word = magic_word #for testing
     print(magic_word_list) #for testing
     print(magic_word_length) #for testing
+    #print(word_display())
     print(line_break + word_text + magic_word + line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
