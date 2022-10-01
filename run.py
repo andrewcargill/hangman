@@ -1,13 +1,5 @@
 import random
 
-
-
-
-
-
-
-
-
 HANGMAN = ['''
         _ _ _ _
        |       
@@ -142,7 +134,8 @@ def game_start_input():
 ## Displays game elements
 def load_game():
     """
-    1. # A function that generates a word in 'magic_word'
+    1. #### A function that generates a word in 'magic_word'
+    1a.#### function that generates guess display word from magic word
     2. A function that listens to the 'guess'
     3. A function that steps the index of 'graphic' if wrong
     4. A function that updates 'wrong_guesses' with wrong letters
@@ -167,9 +160,8 @@ def load_game():
     guess = input("Choose a letter:  ")
 
 """
-This functions start the game
+This functions starts the game
 """
-
 game_start()
 enter_name()
 game_start_input()
