@@ -96,14 +96,23 @@ guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 #Word as displayed to user
 game_word_display =[]
 
-#word in list form
+#answer in list form
 answer_word_list = []
 
 #displays the current letter guesses
 letter_guess = ""
 
-#magic word
+#The word currently being used
 answer =""
+
+#index for hangman image
+hangman_int = 0
+
+#list of bad guesses
+bad_guesses =[2,4,5]
+
+#list of good guesses
+good_guesses = ""
 
 
 #Generates a random word and creates a list of word letters
@@ -128,23 +137,57 @@ def word_display(x):
     return guess_list
 
 """
-Create a function that takes values from 
-game_start_input and feeds them to user_guess
+
 """
 
 #checks if players guess is correct
+#populates answer_word_list with correct word
+#over-writes letter_guess with current guess
 def user_guess(guess, y):
     global answer_word_list
     global letter_guess
     answer_word_list = y
     guess = guess.lower()  #Players guess (letter)
-    letter_guess = guess
-    print(letter_guess)
+    letter_guess = guess 
+    check_true()
+
+    #print(letter_guess) #for testing
+    #print(game_word_display) #for testing
+    #print(answer_word_list) #for testing
+    #print(answer) #for testing
+    #print(hangman_int) #for testing
+    #print(bad_guesses) #for testing
+    #print(good_guesses) #for testing
+
+#checks if guessed letter is in the word
+def check_true():
+    global letter_guess
+    global game_word_display
+    if letter_guess in answer_word_list:
+        update_game_word_display() 
+    else:
+        print("no")
+        bad_guesses()
+
+
+#Adds guessed letter to user_word_display
+#Adds guessed letter to good_guesses
+def update_game_word_display():
+    global game_word_display
+    global good_guesses
+    letter_index = answer_word_list.index(letter_guess) #Finds index - USE CODE
+    game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
+    good_guesses = " " + letter_guess.upper()
     print(game_word_display)
-    print(answer_word_list)
-    print(answer)
-    """
-    if guess in answer:
+    print(good_guesses) #for testing
+
+def bad_guesses():
+    global bad_guesses
+    bad_guesses = " " + letter_guess.upper()
+    print("its a bad guess" + bad_guesses)
+
+"""    
+    
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
         print(HANGMAN[0])  #Needs to take previous Hangman and return same - NEW FUNCTION(E)
         print("-=-=        =-=-=-=-=-=-=-")
@@ -174,7 +217,8 @@ def user_guess(guess, y):
         print("\n")
         print(WORD_LIST)
         next_guess = input("Have another guess: ") # SEND TO NEW FUNCTION (A)
-    """
+ """
+
 # Start game input   
 def game_start_input():
     while True:
