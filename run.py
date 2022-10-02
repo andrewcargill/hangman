@@ -102,6 +102,8 @@ answer_word_list = []
 #displays the current letter guesses
 letter_guess = ""
 
+#magic word
+answer =""
 
 
 #Generates a random word and creates a list of word letters
@@ -131,15 +133,16 @@ game_start_input and feeds them to user_guess
 """
 
 #checks if players guess is correct
-def user_guess(guess, answer):
+def user_guess(guess, y):
     global answer_word_list
     global letter_guess
-    answer_word_list = answer
+    answer_word_list = y
     guess = guess.lower()  #Players guess (letter)
     letter_guess = guess
     print(letter_guess)
     print(game_word_display)
     print(answer_word_list)
+    print(answer)
     """
     if guess in answer:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
@@ -198,13 +201,13 @@ def load_game():
     random_word()
 
     magic_word,magic_word_list,magic_word_length = random_word()
-    
+    global answer
     graphic = HANGMAN
     print(graphic[0])
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    magic_word = magic_word #for testing
-    print("TESTING this is the magic_word:  " + magic_word) #for testing
+    answer = magic_word #for testing
+    print("TESTING this is the magic_word:  " + answer) #for testing
     #print(magic_word_list) #for testing (this is a list of the word)
     #print(magic_word_length) #for testing (this is how many characters)
     print(line_break + word_text + line_break)
