@@ -160,14 +160,18 @@ def user_guess(guess, y):
     #print(good_guesses) #for testing
 
 #checks if guessed letter is in the word
+# NEEDS to check if single character! & Used before?
 def check_true():
     global letter_guess
     global game_word_display
     if letter_guess in answer_word_list:
-        update_game_word_display() 
+        print(HANGMAN[hangman_int])
+        update_game_word_display()
     else:
         print("no")
         bad_guesses()
+        hangman_stepper()
+        print(HANGMAN[hangman_int])
 
 
 #Adds guessed letter to user_word_display
@@ -177,14 +181,22 @@ def update_game_word_display():
     global good_guesses
     letter_index = answer_word_list.index(letter_guess) #Finds index - USE CODE
     game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
-    good_guesses = " " + letter_guess.upper()
+    good_guesses = " " + letter_guess.upper() #FIX must add too - not over-write
     print(game_word_display)
     print(good_guesses) #for testing
 
+#Adds the letter in the bad guesses variable
 def bad_guesses():
     global bad_guesses
-    bad_guesses = " " + letter_guess.upper()
+    bad_guesses = " " + letter_guess.upper() #FIX must add too - not over-write
     print("its a bad guess" + bad_guesses)
+
+#Increases index of hangman variable
+def hangman_stepper():
+    global hangman_int
+    hangman_int = hangman_int+1
+    print(hangman_int)
+    
 
 """    
     
