@@ -94,16 +94,21 @@ word_bank = ["ramble", "tan", "pick", "run", "distance", "today", "thanks", "pla
 guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 
 #Word as displayed to user
-WORD_LIST =[]
+game_word_display =[]
 
 #word in list form
-word_list_answer = []
+answer_word_list = []
+
+#displays the current letter guesses
+letter_guess = ""
+
 
 
 #Generates a random word and creates a list of word letters
 def random_word():
     magic_word = random.choice(word_bank)
-    magic_word_list = []
+    magic_word_list =[]
+    print(magic_word_list)
     for letter in magic_word:
         magic_word_list.append(letter)
         magic_word_length = len(magic_word_list)
@@ -127,9 +132,14 @@ game_start_input and feeds them to user_guess
 
 #checks if players guess is correct
 def user_guess(guess, answer):
+    global answer_word_list
+    global letter_guess
+    answer_word_list = answer
     guess = guess.lower()  #Players guess (letter)
-    print(WORD_LIST)
-    print(answer)
+    letter_guess = guess
+    print(letter_guess)
+    print(game_word_display)
+    print(answer_word_list)
     """
     if guess in answer:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
@@ -198,9 +208,9 @@ def load_game():
     #print(magic_word_list) #for testing (this is a list of the word)
     #print(magic_word_length) #for testing (this is how many characters)
     print(line_break + word_text + line_break)
-    global WORD_LIST
-    WORD_LIST = word_display(magic_word_length) #for testing (word displayed)
-    print(WORD_LIST)
+    global game_word_display
+    game_word_display = word_display(magic_word_length) #for testing (word displayed)
+    print(game_word_display)
     print(line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
