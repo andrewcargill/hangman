@@ -33,7 +33,7 @@ HANGMAN = ['''
        |       
        |     
     #==#==#''', '''
-            _ _ _ _
+        _ _ _ _
        |       |
        |       0
        |      /|\ 
@@ -91,7 +91,7 @@ MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -
 ## Rules of the game
 def enter_name():
     print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
-    print("BUT, IF YOU MAKE 5 WRONG GUESSES THEN POOR HARRY HANGS!")
+    print("BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR HARRY!")
     print("GOOD LUCK.\n")
 
 
@@ -122,12 +122,14 @@ bad_guesses =[]
 #list of good guesses
 good_guesses = []
 
+#all used letters
+used_letters =[]
+
 
 #Generates a random word and creates a list of word letters
 def random_word():
     magic_word = random.choice(word_bank)
     magic_word_list =[]
-    print(magic_word_list)
     for letter in magic_word:
         magic_word_list.append(letter)
         magic_word_length = len(magic_word_list)
@@ -167,25 +169,31 @@ def check_true():
         enter_next_letter()
 
     else:
-        print("no")
         hangman_stepper()
         print(HANGMAN[hangman_int])
-        wrong_guess() #prints the user_word_display
+        print(game_word_display)
         add_to_bad_guesses()#prints updated list
         enter_next_letter()
 
 #Adds a correct letter to good guesses list
 def add_to_good_guesses():
     global good_guesses
+    global used_letters
     good_guesses.append(letter_guess.upper())
+    used_letters.append(letter_guess)
     print("good guesses:")#for testing
     print(good_guesses)#FOR TESTING
+    print(used_letters)#for testing
 
 def add_to_bad_guesses():
     global bad_guesses
+    global used_letters
     bad_guesses.append(letter_guess.upper())
+    used_letters.append(letter_guess)
     print("Bad guesses")
     print(bad_guesses)#for testing
+    print(used_letters)#for testing
+
 
 #checks for end of game (word is fully guessed)
 #asks for next letter
@@ -193,10 +201,28 @@ def add_to_bad_guesses():
 def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
-        print("Well done!! The answer was " + answer + "!!!")
+        print("Well done!! Harry lives! The answer was " + answer + "!!!")
+    elif hangman_int == 6:
+        print("R.I.P Harry!")
     else: 
         global letter_guess
-        letter_guess = input("Guess a letter: ")
+        input = input("Guess a letter: ")
+        one_character_check(input)
+        #check_letter_guess()
+
+#checks letter is a single letter
+#def one_character_check(input):
+#    if len(input) == 1
+#        (print("yes"))
+#    else:
+#        print("no")
+
+#takes the letter and checks against all used letters
+def check_letter_guess():
+    if letter_guess in used_letters:
+        print("Ooops... You've already used that letter!")
+        enter_next_letter()
+    else:
         check_true()
 
 
@@ -210,9 +236,7 @@ def update_game_word_display():
     print(game_word_display)
 
 #Adds the letter in the bad guesses variable
-def wrong_guess():
-    print(game_word_display)
-    print("printed from 'wrong_guess'")
+
 
 #Increases index of hangman variable
 def hangman_stepper():
