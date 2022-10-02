@@ -116,15 +116,15 @@ def word_display(x):
  
  
  # if letter is in word 
-    ## message to user "Nice! X is a great guess"
-    ## Update the display_word
-    ## show same 'hangman'
+    ## DONE message to user "Nice! X is a great guess"
+    ## DONE Update the display_word
+    ## DONE show same 'hangman'
 # else if letter is not in word
-    ## message to user "Unlucky, thats not in word"
-    ## add a step to the hangman 
-    ## add the letter to the wrong guesses 
+    ## DONE message to user "Unlucky, thats not in word"
+    ## DONE add a step to the hangman 
+    ## DONE add the letter to the wrong guesses 
 
-#Then - ask for a new letter
+# DONE Then - ask for a new letter
 
 
 def user_guess(guess, answer, display_word):
@@ -132,30 +132,31 @@ def user_guess(guess, answer, display_word):
     
     if guess in answer:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
-        print(HANGMAN[0])
+        print(HANGMAN[0]) #Needs to take previous Hangman and return same - NEW FUNCTION(E)
         print("-=-=        =-=-=-=-=-=-=-")
         print("\n")
-        print("Yes! '" + guess.upper()+ "' was a great guess!")
-        letter_index = answer.index(guess) #find index number of letter in word (integer)
-        display_word[letter_index] = guess.upper() #updates the display_word (list)
+        print("Yes! '" + guess.upper()+ "' was a great guess!") # Text - USE CODE(D)
+        letter_index = answer.index(guess) #Finds index - USE CODE
+        display_word[letter_index] = guess.upper() # updates display_word - USE CODE(C)
         print("\n")
         print(display_word)
         print("\n")
-        print("wrong guesses: ") ### this needs to be a list
+        print("wrong guesses: ") ### Wrong guess - CREATE FUNCTION TO MANAGE & RETURN(B)
         print("\n")
-        next_guess = input("...Give me another letter to try!: ")
+        next_guess = input("...Give me another letter to try!: ") #SEND TO NEW FUNCTION(A)
     else:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
-        print(HANGMAN[1]) # This needs to automatically add 1 each wrong answer
+        print(HANGMAN[1]) # needs to take pervious hangman and add 1 - CREATE FUNCTION(E)
         print("-=-=        =-=-=-=-=-=-=-")
         print("\n")
-        print("Sorry '" + guess.upper() + "' isn't in the word!")
+        print("Sorry '" + guess.upper() + "' isn't in the word!") #Text - USE CODE(D)
         print("\n")
-        print(display_word)
+        print(display_word) #New function(C)
         print("\n")
-        print("wrong guesses: " + guess.upper()) ### this needs to be a list
+        print("wrong guesses: ")
+        print(guess.upper()) ### this needs to be a list - CREATE FUNCTION (B)
         print("\n")
-        next_guess = input("Have another guess: ")
+        next_guess = input("Have another guess: ") # SEND TO NEW FUNCTION (A)
         print()
     """
     if bool(letter_index) == True:
@@ -185,14 +186,14 @@ def game_start_input():
 
 ## Displays game elements
 def load_game():
-    """
-    1. #### A function that generates a word in 'magic_word'
-    1a.#### function that generates guess display word from magic word
-    2. ###A function that listens to the 'guess'
-    3. A function that steps the index of 'graphic' if wrong
-    4. A function that updates 'wrong_guesses' with wrong letters
-    5. ###A function that updates 'magic_word'
-    """
+
+    # DONE function that generates a word in 'magic_word'
+    # DONE function that generates guess display word from magic word
+    # DONE function that listens to the 'guess'
+    # function that steps the index of 'graphic' if wrong
+    # function that updates 'wrong_guesses' with wrong letters
+    # DONE function that updates 'magic_word'
+    
     random_word()
 
     magic_word,magic_word_list,magic_word_length = random_word()
