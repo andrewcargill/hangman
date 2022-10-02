@@ -107,7 +107,7 @@ def random_word():
     return magic_word,magic_word_list,magic_word_length
 
 
-#Creates a display of the word without letters
+#Creates a display of the word without letters (#possibly build the list from 0)
 def word_display(x):
     n = len(guess_list)
     for i in range(0, n - x):
@@ -132,7 +132,7 @@ def user_guess(guess, answer, display_word):
     
     if guess in answer:
         print("-=-=-=-=-=-=-=-=-=-=-=-=-")
-        print(HANGMAN[0]) #Needs to take previous Hangman and return same - NEW FUNCTION(E)
+        print(HANGMAN[0])  #Needs to take previous Hangman and return same - NEW FUNCTION(E)
         print("-=-=        =-=-=-=-=-=-=-")
         print("\n")
         print("Yes! '" + guess.upper()+ "' was a great guess!") # Text - USE CODE(D)
@@ -157,24 +157,11 @@ def user_guess(guess, answer, display_word):
         print(guess.upper()) ### this needs to be a list - CREATE FUNCTION (B)
         print("\n")
         next_guess = input("Have another guess: ") # SEND TO NEW FUNCTION (A)
-        print()
-    """
-    if bool(letter_index) == True:
-        print("unlucky, try again")
-        display_word[letter_index] = guess #updates the display_word (list)
-    else:
-        print("The letter " + guess + " was in the word!")
-        display_word[letter_index] = guess #updates the display_word (list)
-    #print(guess) #Testing: index of letters in word
-    #print(answer) #testing: the word
-    #print(display_word) #testing: the current display
-   """ 
 
 ## Start game input   
 def game_start_input():
     while True:
         game_start = input("To start: Enter 'E' for easy or 'H' for hard: ")
-
         if game_start.lower() == "h":
             print("lets go!")
             begin_game = load_game()
