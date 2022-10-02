@@ -176,11 +176,20 @@ def check_true():
         bad_guesses() #prints the user_word_display
         enter_next_letter()
 
+#check answer_word_list against game_word_display .
+# if they are the same then end the game
+# else carry on the game
+
 ##input for next guess
+##checks for end of game
 def enter_next_letter():
-    global letter_guess
-    letter_guess = input("Guess a letter: ")
-    check_true()
+    check = [x.upper() for x in answer_word_list]
+    if check == game_word_display:
+        print("Well done!! The answer was " + answer + "!!!")
+    else: 
+        global letter_guess
+        letter_guess = input("Guess a letter: ")
+        check_true()
 
 
 #Adds guessed letter to user_word_display
@@ -271,7 +280,7 @@ def load_game():
     print(graphic[0])
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    answer = magic_word #for testing
+    answer = magic_word.upper() #for testing
     print("TESTING this is the magic_word:  " + answer) #for testing
     #print(magic_word_list) #for testing (this is a list of the word)
     #print(magic_word_length) #for testing (this is how many characters)
