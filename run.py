@@ -166,12 +166,21 @@ def check_true():
     global game_word_display
     if letter_guess in answer_word_list:
         print(HANGMAN[hangman_int])
-        update_game_word_display()
+        update_game_word_display() #this prints the user_word_display
+        enter_next_letter()
+
     else:
         print("no")
-        bad_guesses()
         hangman_stepper()
         print(HANGMAN[hangman_int])
+        bad_guesses() #prints the user_word_display
+        enter_next_letter()
+
+##input for next guess
+def enter_next_letter():
+    global letter_guess
+    letter_guess = input("Guess a letter: ")
+    check_true()
 
 
 #Adds guessed letter to user_word_display
@@ -187,6 +196,7 @@ def update_game_word_display():
 
 #Adds the letter in the bad guesses variable
 def bad_guesses():
+    print(game_word_display)
     global bad_guesses
     bad_guesses = " " + letter_guess.upper() #FIX must add too - not over-write
     print("its a bad guess" + bad_guesses)
@@ -195,7 +205,6 @@ def bad_guesses():
 def hangman_stepper():
     global hangman_int
     hangman_int = hangman_int+1
-    print(hangman_int)
     
 
 """    
