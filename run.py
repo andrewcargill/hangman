@@ -28,6 +28,14 @@ HANGMAN = ['''
         _ _ _ _
        |       |
        |       0
+       |      /|
+       |       |
+       |       
+       |     
+    #==#==#''', '''
+            _ _ _ _
+       |       |
+       |       0
        |      /|\ 
        |       |
        |       
@@ -109,10 +117,10 @@ answer =""
 hangman_int = 0
 
 #list of bad guesses
-bad_guesses =[2,4,5]
+bad_guesses =[]
 
 #list of good guesses
-good_guesses = ""
+good_guesses = []
 
 
 #Generates a random word and creates a list of word letters
@@ -136,11 +144,7 @@ def word_display(x):
         guess_list.pop()
     return guess_list
 
-"""
-
-"""
-
-#checks if players guess is correct
+#this function runs when game starts
 #populates answer_word_list with correct word
 #over-writes letter_guess with current guess
 def user_guess(guess, y):
@@ -151,14 +155,6 @@ def user_guess(guess, y):
     letter_guess = guess 
     check_true()
 
-    #print(letter_guess) #for testing
-    #print(game_word_display) #for testing
-    #print(answer_word_list) #for testing
-    #print(answer) #for testing
-    #print(hangman_int) #for testing
-    #print(bad_guesses) #for testing
-    #print(good_guesses) #for testing
-
 #checks if guessed letter is in the word
 # NEEDS to check if single character! & Used before?
 def check_true():
@@ -167,21 +163,33 @@ def check_true():
     if letter_guess in answer_word_list:
         print(HANGMAN[hangman_int])
         update_game_word_display() #this prints the user_word_display
+        add_to_good_guesses()#testing - this prints the updated list
         enter_next_letter()
 
     else:
         print("no")
         hangman_stepper()
         print(HANGMAN[hangman_int])
-        bad_guesses() #prints the user_word_display
+        wrong_guess() #prints the user_word_display
+        add_to_bad_guesses()#prints updated list
         enter_next_letter()
 
-#check answer_word_list against game_word_display .
-# if they are the same then end the game
-# else carry on the game
+#Adds a correct letter to good guesses list
+def add_to_good_guesses():
+    global good_guesses
+    good_guesses.append(letter_guess.upper())
+    print("good guesses:")#for testing
+    print(good_guesses)#FOR TESTING
 
-##input for next guess
-##checks for end of game
+def add_to_bad_guesses():
+    global bad_guesses
+    bad_guesses.append(letter_guess.upper())
+    print("Bad guesses")
+    print(bad_guesses)#for testing
+
+#checks for end of game (word is fully guessed)
+#asks for next letter
+#then updates letter_guess with letter
 def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
@@ -199,16 +207,12 @@ def update_game_word_display():
     global good_guesses
     letter_index = answer_word_list.index(letter_guess) #Finds index - USE CODE
     game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
-    good_guesses = " " + letter_guess.upper() #FIX must add too - not over-write
     print(game_word_display)
-    print(good_guesses) #for testing
 
 #Adds the letter in the bad guesses variable
-def bad_guesses():
+def wrong_guess():
     print(game_word_display)
-    global bad_guesses
-    bad_guesses = " " + letter_guess.upper() #FIX must add too - not over-write
-    print("its a bad guess" + bad_guesses)
+    print("printed from 'wrong_guess'")
 
 #Increases index of hangman variable
 def hangman_stepper():
