@@ -109,14 +109,14 @@ win_graphic ='''
     '''
 lost_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
-                          _________________              $                    
-                        //        _        \            €€€        
-                       //        | |        \          |###|        
-                      //      ___| |___      \         | x |    
-                     ||      |___   ___|      ||       |   |__________     
-                     ||          | |          ||       | _  ##########|     
-       #######       ||          | |          ||       || |           |      
-      ###########    ||          | |          ||
+                          _________________                                  
+                        //        _        \             $      
+                       //        | |        \           €€€ 
+                      //      ___| |___      \         |###|    
+                     ||      |___   ___|      ||       | x |     
+                     ||          | |          ||       |   |__________     
+       #######       ||          | |          ||       | _  ##########| 
+      ###########    ||          | |          ||       || |           |   
       #############  ||                       ||     
         #############||       R . I . P       || 
       ### ###########||       H A R R Y       ||        
@@ -262,7 +262,7 @@ def check_guess(y):
         print(" Ooops... You've already used that letter!")
         enter_next_letter()
     elif len(y) > 1:
-        print(" Slow down my friend... guess one letter at a time!")
+        print(" Slow down my friend... guess one letter at a time.")
         enter_next_letter()
     elif y.isnumeric() == True:
         print(" Hint: There's no numbers in the word!")
