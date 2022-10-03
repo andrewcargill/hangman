@@ -107,7 +107,20 @@ win_graphic ='''
                                    #==#==#    -   -        
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
     '''
-
+lost_graphic = '''
+                          _________________              $                    
+                        //                 \            €€€        
+                       //        | |        \          |###|        
+                      //      ___| |___      \         | x |    
+                     ||       ___   ___       ||       |   |__________     
+                     ||          | |          ||       | _  ##########|     
+       #######       ||          | |          ||       || |           |      
+      ###########    ||          | |          ||
+      #############  ||                       ||     
+        #############||       R . I . P       || 
+      ### ###########||       H A R R Y       ||        
+    ############################___###_###_#############
+'''
 ## Rules of the game
 def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
@@ -224,6 +237,7 @@ def enter_next_letter():
         print(" Would you like to play again?")
         play_again()
     elif hangman_int == 6:
+        print(lost_graphic)
         print(" R.I.P Harry!")
         print(" Maybe next time!... Would you like to play again?")
         play_again()
