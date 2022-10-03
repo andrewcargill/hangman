@@ -94,8 +94,13 @@ def rules():
     print("GOOD LUCK.\n")
 
 
+
 # this is where all words are stored  
-word_bank = ["ramble", "tan", "pick", "run", "distance", "today", "thanks", "plant", "insect"]
+animal_words = ["bull", "cow", "duck", "mouse", "cat", "dog", "horse", "goat", "tiger"]
+
+color_words = ["blue", "red", "purple", "grey", "pink", "orange", "black", "white"]
+
+animal_game = True
 
 #A blank list that will show any correct letters
 guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
@@ -132,13 +137,20 @@ used_letters =[]
 def random_word():
     global answer_word_list
     global answer
-    magic_word = random.choice(word_bank)
+    magic_word = random.choice(game_words_selector())
     answer = magic_word.upper()
     for letter in answer:
         answer_word_list.append(letter)
         answer_length = len(answer_word_list)
     print(answer_length)
     create_game_word_display(answer_length)
+
+def game_words_selector():
+    if animal_game == True:
+        return animal_words
+    else:
+        return color_words
+
         
 #Creates a list of the word without letters
 def create_game_word_display(x):
@@ -243,10 +255,13 @@ def choose_game():
     check_game_input(enter)
 
 def check_game_input(x):
+    global animal_game
     if x.lower() == "a":
+        animal_game = True
         load_game()
     elif x.lower() == "c":
-        print("Colors game is loading...")
+        animal_game = False
+        load_game()
     else:
         print("Try again my friend!")
         choose_game()
