@@ -12,7 +12,6 @@ HANGMAN = ['''
     ||        |   | |   |             |                 || |           |
                                    #==#==#              
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
-    
     ''', '''
         _ _ _ _
        |       |
@@ -276,7 +275,6 @@ def load_game():
 
     ##USER SCREEN
     print(HANGMAN[hangman_int])
-    line_break = "\n"
     print(type_for_game_header())
     print(line_break)
     print("Here is the word to guess: " + list_to_string(game_word_display))
