@@ -150,18 +150,19 @@ def create_game_word_display(x):
         game_word_display.append("- ")
 
 #checks if guessed letter is in the word
-#updates used_letters variable
+#if it is - updates game_word_display
+#if not - updates hangman index & adds to bad guesses
 def check_true():
     if letter_guess in answer_word_list:
-        print(HANGMAN[hangman_int])
-        update_game_word_display() #this prints the user_word_display
-        enter_next_letter()
+        print(HANGMAN[hangman_int]) #doesn't need this
+        update_game_word_display() #needs to do this
+        enter_next_letter() #doesn't need this
     else:
-        hangman_stepper()
-        print(HANGMAN[hangman_int])
-        add_to_bad_guesses()
-        print(game_word_display)
-        enter_next_letter()
+        hangman_stepper() #needs to do this
+        print(HANGMAN[hangman_int]) #doesnt need this
+        add_to_bad_guesses() #needs to do this
+        print(game_word_display) #doesn't need this
+        enter_next_letter() #doesn't need this
 
 #Adds a correct letter to good guesses list
 def add_to_used_letters():
@@ -200,6 +201,7 @@ def play_again():
         welcome_screen()
 
 #checks guess for previous use, length & numeric
+#Adds to used_letters if new letter is guessed
 def check_guess(y):
     global letter_guess
     if y.upper() in used_letters:
@@ -223,7 +225,7 @@ def update_game_word_display():
     global game_word_display
     letter_index = answer_word_list.index(letter_guess) #Finds index - USE CODE
     game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
-    print(game_word_display)
+    print(game_word_display) #remove this
 
 #Increases index of hangman variable
 def hangman_stepper():
@@ -274,6 +276,7 @@ def load_game():
     print("TESTING this is the magic_word:  " + answer) #for testing
 
     ##USER SCREEN
+
     line_break = "\n"
     print(HANGMAN[hangman_int])
     print(type_for_game_header())
@@ -287,22 +290,23 @@ def load_game():
     print(line_break)
     enter_next_letter()
 
-"""
-This functions starts the game
-"""
+#prints type of word to guess
 def type_for_game_header():
     if animal_game == True:
         return("TYPE OF WORD: A N I M A L")
     else:
         return("TYPE OF WORD: C O L O U R")
 
+#Turns a list into a string
 def list_to_string(list):
     list_to_print = ""
     for x in list:
         list_to_print += " " + x
     return list_to_print
 
-
+"""
+This functions starts the game
+"""
 welcome_screen()
 
 
