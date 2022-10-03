@@ -205,17 +205,16 @@ def enter_next_letter():
     elif hangman_int == 6:
         print("R.I.P Harry!")
     else: 
-        global letter_guess
-        input = input("Guess a letter: ")
-        one_character_check(input)
-        #check_letter_guess()
+        y = input("Guess a letter: ")
+        one_character_check(y)
+        check_letter_guess()
 
 #checks letter is a single letter
-#def one_character_check(input):
-#    if len(input) == 1
-#        (print("yes"))
-#    else:
-#        print("no")
+def one_character_check(input):
+    if len(input) == 1:
+        (print("yes"))
+    else:
+        print("no")
 
 #takes the letter and checks against all used letters
 def check_letter_guess():
