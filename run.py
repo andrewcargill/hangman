@@ -192,7 +192,7 @@ def enter_next_letter():
 #checks guess for previous use, length & numeric
 def check_guess(y):
     global letter_guess
-    if y in used_letters:
+    if y.upper() in used_letters:
         print("Ooops... You've already used that letter!")
         enter_next_letter()
     elif len(y) > 1:
