@@ -222,6 +222,9 @@ def check_letter_guess(y):
     if y in used_letters:
         print("Ooops... You've already used that letter!")
         enter_next_letter()
+    elif len(y) > 1:
+        print("Slow down my friend... guess one letter at a time!")
+        enter_next_letter()
     else:
         letter_guess = y
         print(letter_guess)
