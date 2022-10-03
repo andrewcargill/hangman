@@ -206,30 +206,31 @@ def enter_next_letter():
         print("R.I.P Harry!")
     else: 
         y = input("Guess a letter: ")
-        one_character_check(y)
-        check_letter_guess()
+        check_letter_guess(y)
 
 #checks letter is a single letter
-def one_character_check(input):
-    if len(input) == 1:
-        (print("yes"))
-    else:
-        print("no")
+#def one_character_check(input):
+#    if len(input) == 1:
+#        (print("yes"))
+#    else:
+#        print("no")
+
 
 #takes the letter and checks against all used letters
-def check_letter_guess():
-    if letter_guess in used_letters:
+def check_letter_guess(y):
+    global letter_guess
+    if y in used_letters:
         print("Ooops... You've already used that letter!")
         enter_next_letter()
     else:
+        letter_guess = y
+        print(letter_guess)
         check_true()
 
 
 #Adds guessed letter to user_word_display
-#Adds guessed letter to good_guesses
 def update_game_word_display():
     global game_word_display
-    global good_guesses
     letter_index = answer_word_list.index(letter_guess) #Finds index - USE CODE
     game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
     print(game_word_display)
