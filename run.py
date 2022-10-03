@@ -94,6 +94,20 @@ first_guess_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
     '''
 
+win_graphic ='''
+#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
+                                                                     \ | /   
+    @@                                 _ _ _ _            $         -  @  - 
+   @@@@                               |                  €€€         / | \ 
+  @@@@@@                              |    T H A N K S! |###|        
+    ||         =========              |         0       | x |
+    ||        ===========             |        \|/      |   |__________
+    ||        | x  _  x |             |         |       | _  ##########|
+    ||        |   | |   |             |        / \      || |           |
+                                   #==#==#    -   -        
+#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
+    '''
+
 ## Rules of the game
 def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
@@ -205,8 +219,9 @@ def add_to_bad_guesses():
 def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
+        print(win_graphic)
         print(" YOU SAVED HARRY! The answer was " + answer + "!!!")
-        print(" That was too easy, would you like to play again?")
+        print(" Would you like to play again?")
         play_again()
     elif hangman_int == 6:
         print(" R.I.P Harry!")
