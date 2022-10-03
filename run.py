@@ -76,8 +76,8 @@ HH    HH   AA    AA   NN    NN    GGGGG    MM    MM   AA    AA   NN    NN
 
 ## Rules of the game
 def rules():
-    print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
-    print("BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR HARRY!")
+    print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
+    print("BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!")
     print("GOOD LUCK.\n")
 
 
@@ -234,7 +234,8 @@ def welcome_screen():
     y = input("Press 'return' start\n")
     print("\n")
     print("Ok, so you've read the rules...")
-    print("Now to decide which kind of word to guess")
+    print("Now which kind of word do you want to guess?")
+    print("\n")
     choose_game()
 
 def choose_game():
@@ -250,7 +251,7 @@ def check_game_input(x):
         animal_game = False
         load_game()
     else:
-        print("Try again my friend!")
+        print("Try again my friend!\n")
         choose_game()
 
 ## Displays game elements
