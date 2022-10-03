@@ -2,9 +2,10 @@ import random
 
 HANGMAN = ['''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
-     @                                 _ _ _ _            $          \ | / 
-    @@@                               |                  €€€        -  @  -
-   @@@@@                              |                 |###|        / | \ 
+                                                                     \ | /   
+    @@                                 _ _ _ _            $         -  @  - 
+   @@@@                               |                  €€€         / | \ 
+  @@@@@@                              |                 |###|        
     ||         =========              |                 | x |
     ||        ===========             |                 |   |__________
     ||        | x  _  x |             |                 | _  ##########|
@@ -236,12 +237,12 @@ def welcome_screen():
     y = input("Press 'return' start\n")
     print("\n")
     print("Ok, so you've read the rules...")
-    print("Now which kind of word do you want to guess?")
+    print("Now which kind of word do you want to try and guess?")
     print("\n")
     choose_game()
 
 def choose_game():
-    enter = input("Type 'A' for Animals or 'C' for Colors: ")
+    enter = input("Type 'A' for Animals or 'C' for Colours: ")
     check_game_input(enter)
 
 def check_game_input(x):
@@ -268,29 +269,39 @@ def load_game():
     answer_word_list =[]
     bad_guesses =[]
     used_letters=[]
-    
     #generates new word a populates relevant variables
     random_word()  
-
     #First Display
     print("TESTING this is the magic_word:  " + answer) #for testing
 
-    print(HANGMAN[0])
+    ##USER SCREEN
+    print(HANGMAN[hangman_int])
     line_break = "\n"
-    word_text = "Here's the word to guess:    "
-    print(game_word_display)
+    print(type_for_game_header())
     print(line_break)
-
+    print("Here is the word to guess: " + list_to_string(game_word_display))
+    
     print(line_break)
-    print("-----------------------")
-    wrong_guesses_text = "Wrong guesses: \n"
-    print(bad_guesses)
+    print("Wrong Guesses:")
+    print("---------------")
+    print(list_to_string(bad_guesses))
     print(line_break)
     enter_next_letter()
 
 """
 This functions starts the game
 """
+def type_for_game_header():
+    if animal_game == True:
+        return("TYPE OF WORD: A N I M A L")
+    else:
+        return("TYPE OF WORD: C O L O U R")
+
+def list_to_string(list):
+    list_to_print = ""
+    for x in list:
+        list_to_print += " " + x
+    return list_to_print
 
 
 welcome_screen()
