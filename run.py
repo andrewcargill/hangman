@@ -61,28 +61,15 @@ HANGMAN = ['''
 
 
 game_start_graphic = '''
-              @                        @         @ 
-    @        @@                       @@        @@  
-   @@       @@@@                     @@@@      @@@@ 
-   ||        ||                       ||        ||
-——————  W E L C O M E   T O   H A R R Y ' S  —————————
 
-HHH      HHH      AAA      NNN       NNN      GGGGG
-HHH      HHH    AAA AAA    NNN N     NNN    GGG    GGG
-HHH      HHH   AAA   AAA   NNN  N    NNN  GGG
-HHHHHHHHHHHH  AAAAAAAAAAA  NNN   N   NNN  GGG    
-HHH      HHH  AAA     AAA  NNN    N  NNN  GGG    GGGGG
-HHH      HHH  AAA     AAA  NNN     N NNN   GGG     GGG
-HHH      HHH  AAA     AAA  NNN      NNNN    GGGGGGG
+-------------------- W E L C O M E   T O   H A R R Y ' S --------------------
 
-MMM      MMM      AAA      NNN       NNN     _ _ _ _
-MMMM    MMMM    AAA AAA    NNN N     NNN    |       |
-MMM M  M MMM   AAA   AAA   NNN  N    NNN    |       0
-MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |      /|\  
-MMM      MMM  AAA    AAA   NNN    N  NNN    |       |
-MMM      MMM  AAA    AAA   NNN     N NNN    |      / \ 
-MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -  
-                                            |
+HH    HH      AAA       NNn   NN     GGGGG   MMm  mMM      AAA       NNn   NN
+HH    HH     A    A     NN n  NN   GG        MM mm MM     A    A     NN n  NN   
+HHHHHHHH    AAAAAAAA    NN  n NN  GG   GGG   MM    MM    AAAAAAAA    NN  n NN       
+HH    HH    AA    AA    NN   nNN   GG   GG   MM    MM    AA    AA    NN   nNN   
+HH    HH    AA    AA    NN    NN    GGGGG    MM    MM    AA    AA    NN    NN
+
 #==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#==#
 
 \n'''
