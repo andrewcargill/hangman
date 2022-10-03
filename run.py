@@ -59,8 +59,8 @@ HANGMAN = ['''
     #==#==#''']
 
 
-class game_start():
-    game_start_graphic = '''
+
+game_start_graphic = '''
               @                        @         @ 
     @        @@                       @@        @@  
    @@       @@@@                     @@@@      @@@@ 
@@ -86,7 +86,6 @@ MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -
 #==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#
 
 \n'''
-    print(game_start_graphic)
 
 ## Rules of the game
 def rules():
@@ -147,6 +146,7 @@ def random_word():
 # (DEV: build the list from 0)
 def word_display(x):
     global game_word_display
+    game_word_display = default_list
     n = len(guess_list)
     for i in range(0, n - x):
         guess_list.pop()
@@ -186,11 +186,22 @@ def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
         print("Well done!! Harry lives! The answer was " + answer + "!!!")
+        print("That was too easy, would you like to play again?")
+        play_again()
     elif hangman_int == 6:
         print("R.I.P Harry!")
+        print("Maybe next time!... Would you like to play again?")
+        play_again()
     else: 
         y = input("Guess a letter: ")
         check_guess(y)
+
+def play_again():
+    x = input("press 'Y' for yes or 'Return' to head home: ")
+    if x.lower() == "y":
+        choose_game()
+    else:
+        welcome_screen()
 
 #checks guess for previous use, length & numeric
 def check_guess(y):
@@ -224,7 +235,7 @@ def hangman_stepper():
     hangman_int = hangman_int+1
     
 def welcome_screen():
-    game_start()
+    print(game_start_graphic)
     rules()
     y = input("Press 'return' start\n")
     print("\n")
@@ -248,10 +259,24 @@ def check_game_input(x):
 ## Displays game elements
 def load_game():
     global hangman_int
-    global guess_list
-    guess_list = default_list
+    global game_word_display
+    global answer_word_list
+    global bad_guesses
+    global used_letters
     hangman_int = 0 
+    game_word_display = default_list
+    answer_word_list =[]
+    bad_guesses =[]
+    used_letters=[]
+    print("after resetting")
+    print(hangman_int)
+    print(game_word_display)
+    print(answer_word_list)
+    print(bad_guesses)
+    print(used_letters)
+    print()
 
+    #new random word
     random_word()  
     print(HANGMAN[0])
     ##UPDATES GLOBAL 'ANSWER'
@@ -260,6 +285,7 @@ def load_game():
     print("TESTING this is the magic_word:  " + answer) #for testing
     print(line_break + word_text + line_break)
     print(answer_word_list)#for testing
+    print("this is game word display:")
     print(game_word_display)
     print(line_break)
     wrong_guesses_text = "Wrong guesses: \n"
