@@ -59,41 +59,25 @@ HANGMAN = ['''
     #==#==#''']
 
 game_start_graphic = '''
-——————  W E L C O M E   T O   H A R R Y ' S  —————————
+ ——————  W E L C O M E   T O   H A R R Y ' S  —————————
 
-HHH      HHH      AAA      NNN       NNN      GGGGG
-HHH      HHH    AAA AAA    NNN N     NNN    GGG    GGG
-HHH      HHH   AAA   AAA   NNN  N    NNN  GGG
-HHHHHHHHHHHH  AAAAAAAAAAA  NNN   N   NNN  GGG    
-HHH      HHH  AAA     AAA  NNN    N  NNN  GGG    GGGGG
-HHH      HHH  AAA     AAA  NNN     N NNN   GGG     GGG
-HHH      HHH  AAA     AAA  NNN      NNNN    GGGGGGG
-
-MMM      MMM      AAA      NNN       NNN     _ _ _ _
-MMMM    MMMM    AAA AAA    NNN N     NNN    |       |
-MMM M  M MMM   AAA   AAA   NNN  N    NNN    |       0
-MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |      /|\  
-MMM      MMM  AAA    AAA   NNN    N  NNN    |       |
-MMM      MMM  AAA    AAA   NNN     N NNN    |      / \ 
-MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -  
-                                            |
+ HHH      HHH      AAA      NNN       NNN      GGGGG
+ HHH      HHH    AAA AAA    NNN N     NNN    GGG    GGG
+ HHH      HHH   AAA   AAA   NNN  N    NNN  GGG
+ HHHHHHHHHHHH  AAAAAAAAAAA  NNN   N   NNN  GGG    
+ HHH      HHH  AAA     AAA  NNN    N  NNN  GGG    GGGGG
+ HHH      HHH  AAA     AAA  NNN     N NNN   GGG     GGG
+ HHH      HHH  AAA     AAA  NNN      NNNN    GGGGGGG
+                                              _ _ _ _
+ MMM      MMM      AAA      NNN       NNN    |       |
+ MMMM    MMMM    AAA AAA    NNN N     NNN    |       0
+ MMM M  M MMM   AAA   AAA   NNN  N    NNN    |      /|\ 
+ MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |       |  
+ MMM      MMM  AAA    AAA   NNN    N  NNN    |      / \ 
+ MMM      MMM  AAA    AAA   NNN     N NNN    |     -   -
+ MMM      MMM  AAA    AAA   NNN      NNNN    | 
+--------------  CODED BY ANDREW CARGILL  --------------                                             
 '''
-
-
-#game_start_graphic = '''
-#
-#-------------------- W E L C O M E   T O   H A R R Y ' S ------------------
-#
-# HH    HH     AAAA     NNn   NN    GGGGG    MMm  mMM     AAAA     NNn   NN
-# HH    HH    A    A    NN n  NN   GG        MM mm MM    A    A    NN n  NN   
-# HHHHHHHH   AAAAAAAA   NN  n NN  GG   GGG   MM    MM   AAAAAAAA   NN  n NN       
-# HH    HH   AA    AA   NN   nNN   GG   GG   MM    MM   AA    AA   NN   nNN 
-# HH    HH   AA    AA   NN    NN    GGGGG    MM    MM   AA    AA   NN    NN
-#
-##==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#
-#
-#\n'''
-
 
 
 first_guess_graphic = '''
@@ -113,8 +97,7 @@ first_guess_graphic = '''
 ## Rules of the game
 def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
-    print(" BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!")
-    print(" GOOD LUCK.\n")
+    print(" BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!\n")
 
 
 
@@ -123,13 +106,8 @@ animal_words = ["bull", "cow", "duck", "mouse", "cat", "dog", "horse", "goat", "
 
 color_words = ["blue", "red", "purple", "grey", "pink", "orange", "black", "white"]
 
+#Used to select game questions
 animal_game = True
-
-#A blank list that will show any correct letters
-guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
-
-#default_list for new games
-default_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 
 #Word as displayed to user
 game_word_display = []
@@ -149,9 +127,6 @@ hangman_int = 0
 #list of bad guesses
 bad_guesses =[]
 
-#list of good guesses
-good_guesses = []
-
 #all used letters
 used_letters =[]
 
@@ -167,6 +142,7 @@ def random_word():
         answer_length = len(answer_word_list)
     create_game_word_display(answer_length)
 
+#Selects words based on players choice
 def game_words_selector():
     if animal_game == True:
         return animal_words
@@ -207,20 +183,15 @@ def game_loop_display():
     print(" WRONG GUESSES: " + list_to_string(bad_guesses))
     print("\n") 
 
-
 #Adds letter guessed to a list
 def add_to_used_letters():
     global used_letters
     used_letters.append(letter_guess.upper())
-    print(used_letters)#for testing
 
 #adds wrong guesses to a list
 def add_to_bad_guesses():
     global bad_guesses
     bad_guesses.append(letter_guess.upper())
-    print("Bad guesses")
-    print(bad_guesses)#for testing
-
 
 #checks for end of game
 #asks user for next guess
@@ -260,8 +231,6 @@ def check_guess(y):
         enter_next_letter()
     else:
         letter_guess = y.upper()
-        add_to_used_letters()#prints for testing
-        print(letter_guess)#for testing
         check_true()
 
 
@@ -320,9 +289,6 @@ def load_game():
     random_word()  
     #First Display
     print("TESTING this is the magic_word:  " + answer) #for testing
-
-    ##USER SCREEN
-
     line_break = "\n"
     print(first_guess_graphic)
     print(type_for_game_header())
