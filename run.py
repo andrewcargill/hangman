@@ -128,34 +128,26 @@ used_letters =[]
 
 #Generates a random word and creates a list of word letters
 def random_word():
+    global answer_word_list
+    global answer
     magic_word = random.choice(word_bank)
-    magic_word_list =[]
-    for letter in magic_word:
-        magic_word_list.append(letter)
-        magic_word_length = len(magic_word_list)
+    answer = magic_word.upper()
+    for letter in answer:
+        answer_word_list.append(letter)
+        answer_length = len(answer_word_list)
+    print(answer_length)
+    word_display(answer_length)
         
-
-    return magic_word,magic_word_list,magic_word_length
 
 
 #Creates a list of the word without letters
 # (DEV: build the list from 0)
 def word_display(x):
+    global game_word_display
     n = len(guess_list)
     for i in range(0, n - x):
         guess_list.pop()
-    return guess_list
-
-#this function runs ONE FIRST GUESS
-#populates answer_word_list with correct word
-#over-writes letter_guess with current guess
-def user_guess(guess, y):
-    global answer_word_list
-    global letter_guess
-    answer_word_list = y
-    guess = guess.lower()  #Players guess (letter)
-    letter_guess = guess 
-    check_true()
+    game_word_display = guess_list
 
 #checks if guessed letter is in the word
 #updates used_letters variable
@@ -163,7 +155,6 @@ def check_true():
     if letter_guess in answer_word_list:
         print(HANGMAN[hangman_int])
         update_game_word_display() #this prints the user_word_display
-        #add_to_good_guesses()#testing - this prints the updated list
         enter_next_letter()
 
     else:
@@ -176,7 +167,7 @@ def check_true():
 #Adds a correct letter to good guesses list
 def add_to_used_letters():
     global used_letters
-    used_letters.append(letter_guess)
+    used_letters.append(letter_guess.upper())
     print(used_letters)#for testing
 
 def add_to_bad_guesses():
@@ -211,7 +202,7 @@ def check_guess(y):
         print("Hint: There's no numbers in the word!")
         enter_next_letter()
     else:
-        letter_guess = y
+        letter_guess = y.upper()
         add_to_used_letters()#prints for testing
         print(letter_guess)#for testing
         check_true()
@@ -224,48 +215,11 @@ def update_game_word_display():
     game_word_display[letter_index] = letter_guess.upper() # updates display_word - USE CODE(C)
     print(game_word_display)
 
-#Adds the letter in the bad guesses variable
-
-
 #Increases index of hangman variable
 def hangman_stepper():
     global hangman_int
     hangman_int = hangman_int+1
     
-
-"""    
-    
-        print("-=-=-=-=-=-=-=-=-=-=-=-=-")
-        print(HANGMAN[0])  #Needs to take previous Hangman and return same - NEW FUNCTION(E)
-        print("-=-=        =-=-=-=-=-=-=-")
-        print("\n")
-        print("Yes! '" + guess.upper()+ "' was a great guess!") # Text - USE CODE(D)
-        letter_index = answer.index(guess) #Finds index - USE CODE
-        WORD_LIST[letter_index] = guess.upper() # updates display_word - USE CODE(C)
-        print("\n")
-        print(WORD_LIST)
-        print("\n")
-        print("wrong guesses: ") ### Wrong guess - CREATE FUNCTION TO MANAGE & RETURN(B)
-        print("\n")
-        print(WORD_LIST)
-        next_guess = input("...Give me another letter to try!: ") #SEND TO NEW FUNCTION(A)
-        
-    else:
-        print("-=-=-=-=-=-=-=-=-=-=-=-=-")
-        print(HANGMAN[1]) # needs to take pervious hangman and add 1 - CREATE FUNCTION(E)
-        print("-=-=        =-=-=-=-=-=-=-")
-        print("\n")
-        print("Sorry '" + guess.upper() + "' isn't in the word!") #Text - USE CODE(D)
-        print("\n")
-        print(WORD_LIST) #New function(C)
-        print("\n")
-        print("wrong guesses: ")
-        print(guess.upper()) ### this needs to be a list - CREATE FUNCTION (B)
-        print("\n")
-        print(WORD_LIST)
-        next_guess = input("Have another guess: ") # SEND TO NEW FUNCTION (A)
- """
-
 # Start game input   
 def game_start_input():
     while True:
@@ -281,10 +235,7 @@ def game_start_input():
 
 ## Displays game elements
 def load_game():    
-    random_word()
-
-    magic_word,magic_word_list,magic_word_length = random_word()
-    
+    random_word()  
     graphic = HANGMAN
 
     ##PRINTS FIRST GRAPHIC
@@ -293,24 +244,17 @@ def load_game():
     ##UPDATES GLOBAL 'ANSWER'
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    global answer
-    answer = magic_word.upper() #for testing
+    #global answer
+    #answer = magic_word.upper() #for testing
     print("TESTING this is the magic_word:  " + answer) #for testing
-    #print(magic_word_list) #for testing (this is a list of the word)
-    #print(magic_word_length) #for testing (this is how many characters)
     print(line_break + word_text + line_break)
-
-    ##CREATES THE GLOBAL 'GAME WORD DISPLAY'
-    global game_word_display
-    game_word_display = word_display(magic_word_length) #for testing (word displayed)
+    print(answer_word_list)#for testing
     print(game_word_display)
     print(line_break)
     wrong_guesses_text = "Wrong guesses: \n"
     wrong_guesses ="A B C"
     print(wrong_guesses_text + wrong_guesses + line_break)
-    guess = input("Choose a letter:  ")
-    print(line_break)
-    user_guess(guess, magic_word_list)
+    enter_next_letter()
 
 """
 This functions starts the game
