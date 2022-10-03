@@ -130,6 +130,12 @@ bad_guesses =[]
 #all used letters
 used_letters =[]
 
+#used in development of game
+def code_checker():
+    print("Game word display = " + list_to_string(game_word_display))
+    print("Answer word list  " + list_to_string(answer_word_list))
+    print("letter guess" + letter_guess)
+    print("used letters" + list_to_string(used_letters))
 
 #Generates a random word and creates a list of word letters
 def random_word():
@@ -188,6 +194,7 @@ def add_to_used_letters():
     global used_letters
     used_letters.append(letter_guess.upper())
 
+
 #adds wrong guesses to a list
 def add_to_bad_guesses():
     global bad_guesses
@@ -221,16 +228,17 @@ def play_again():
 def check_guess(y):
     global letter_guess
     if y.upper() in used_letters:
-        print("Ooops... You've already used that letter!")
+        print(" Ooops... You've already used that letter!")
         enter_next_letter()
     elif len(y) > 1:
-        print("Slow down my friend... guess one letter at a time!")
+        print(" Slow down my friend... guess one letter at a time!")
         enter_next_letter()
     elif y.isnumeric() == True:
-        print("Hint: There's no numbers in the word!")
+        print(" Hint: There's no numbers in the word!")
         enter_next_letter()
     else:
         letter_guess = y.upper()
+        add_to_used_letters()
         check_true()
 
 
@@ -253,7 +261,7 @@ def welcome_screen():
     y = input(" Press 'return' start ")
     print("\n")
     print(" Ok, so you've read the rules...")
-    print(" Now which type of word do you want to try and guess?")
+    print(" It's time to choose a type of word. Good Luck!! ")
     print("\n")
     choose_game()
 
