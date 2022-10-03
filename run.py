@@ -274,6 +274,7 @@ def load_game():
     print("TESTING this is the magic_word:  " + answer) #for testing
 
     ##USER SCREEN
+    line_break = "\n"
     print(HANGMAN[hangman_int])
     print(type_for_game_header())
     print(line_break)
