@@ -104,7 +104,7 @@ guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 default_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 
 #Word as displayed to user
-game_word_display =[]
+game_word_display = []
 
 #answer in list form
 answer_word_list = []
@@ -138,19 +138,15 @@ def random_word():
         answer_word_list.append(letter)
         answer_length = len(answer_word_list)
     print(answer_length)
-    word_display(answer_length)
+    create_game_word_display(answer_length)
         
-
-
 #Creates a list of the word without letters
-# (DEV: build the list from 0)
-def word_display(x):
+def create_game_word_display(x):
     global game_word_display
-    game_word_display = default_list
-    n = len(guess_list)
-    for i in range(0, n - x):
-        guess_list.pop()
-    game_word_display = guess_list
+    game_start_graphic = []
+    for i in range(x):
+        game_word_display.append("- ")
+    print (game_word_display)
 
 #checks if guessed letter is in the word
 #updates used_letters variable
@@ -159,7 +155,6 @@ def check_true():
         print(HANGMAN[hangman_int])
         update_game_word_display() #this prints the user_word_display
         enter_next_letter()
-
     else:
         hangman_stepper()
         print(HANGMAN[hangman_int])
@@ -259,21 +254,21 @@ def check_game_input(x):
 ## Displays game elements
 def load_game():
     global hangman_int
-    global game_word_display
     global answer_word_list
     global bad_guesses
     global used_letters
+    global game_word_display
     hangman_int = 0 
-    game_word_display = default_list
+    game_word_display = []
     answer_word_list =[]
     bad_guesses =[]
     used_letters=[]
-    print("after resetting")
-    print(hangman_int)
-    print(game_word_display)
-    print(answer_word_list)
-    print(bad_guesses)
-    print(used_letters)
+    print("after resetting")#for testing
+    print(hangman_int)#for testing
+    print(game_word_display)#for testing
+    print(answer_word_list)#for testing
+    print(bad_guesses)#for testing
+    print(used_letters)#for testing
     print()
 
     #new random word
