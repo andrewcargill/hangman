@@ -284,16 +284,23 @@ def load_game():
     random_word()
 
     magic_word,magic_word_list,magic_word_length = random_word()
-    global answer
+    
     graphic = HANGMAN
+
+    ##PRINTS FIRST GRAPHIC
     print(graphic[0])
+
+    ##UPDATES GLOBAL 'ANSWER'
     line_break = "\n"
     word_text = "Here's the word to guess:    "
+    global answer
     answer = magic_word.upper() #for testing
     print("TESTING this is the magic_word:  " + answer) #for testing
     #print(magic_word_list) #for testing (this is a list of the word)
     #print(magic_word_length) #for testing (this is how many characters)
     print(line_break + word_text + line_break)
+
+    ##CREATES THE GLOBAL 'GAME WORD DISPLAY'
     global game_word_display
     game_word_display = word_display(magic_word_length) #for testing (word displayed)
     print(game_word_display)
