@@ -177,12 +177,8 @@ def check_true():
 
 #Adds a correct letter to good guesses list
 def add_to_good_guesses():
-    global good_guesses
     global used_letters
-    good_guesses.append(letter_guess.upper())
     used_letters.append(letter_guess)
-    print("good guesses:")#for testing
-    print(good_guesses)#FOR TESTING
     print(used_letters)#for testing
 
 def add_to_bad_guesses():
@@ -206,10 +202,10 @@ def enter_next_letter():
         print("R.I.P Harry!")
     else: 
         y = input("Guess a letter: ")
-        check_letter_guess(y)
+        check_guess(y)
 
 #takes the letter and checks against all used letters
-def check_letter_guess(y):
+def check_guess(y):
     global letter_guess
     if y in used_letters:
         print("Ooops... You've already used that letter!")
