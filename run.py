@@ -70,7 +70,7 @@ game_start_graphic = '''
  HH    HH   AA    AA   NN   nNN   GG   GG   MM    MM   AA    AA   NN   nNN 
  HH    HH   AA    AA   NN    NN    GGGGG    MM    MM   AA    AA   NN    NN
 
-#==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#==
+#==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#
 
 \n'''
 
