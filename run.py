@@ -146,7 +146,7 @@ def word_display(x):
         guess_list.pop()
     return guess_list
 
-#this function runs when game starts
+#this function runs ONE FIRST GUESS
 #populates answer_word_list with correct word
 #over-writes letter_guess with current guess
 def user_guess(guess, y):
@@ -158,42 +158,36 @@ def user_guess(guess, y):
     check_true()
 
 #checks if guessed letter is in the word
-# NEEDS to check if single character! & Used before?
+#updates used_letters variable
 def check_true():
-    global letter_guess
-    global game_word_display
     if letter_guess in answer_word_list:
         print(HANGMAN[hangman_int])
         update_game_word_display() #this prints the user_word_display
-        add_to_good_guesses()#testing - this prints the updated list
+        #add_to_good_guesses()#testing - this prints the updated list
         enter_next_letter()
 
     else:
         hangman_stepper()
         print(HANGMAN[hangman_int])
+        add_to_bad_guesses()
         print(game_word_display)
-        add_to_bad_guesses()#prints updated list
         enter_next_letter()
 
 #Adds a correct letter to good guesses list
-def add_to_good_guesses():
+def add_to_used_letters():
     global used_letters
     used_letters.append(letter_guess)
     print(used_letters)#for testing
 
 def add_to_bad_guesses():
     global bad_guesses
-    global used_letters
     bad_guesses.append(letter_guess.upper())
-    used_letters.append(letter_guess)
     print("Bad guesses")
     print(bad_guesses)#for testing
-    print(used_letters)#for testing
 
 
 #checks for end of game (word is fully guessed)
 #asks for next letter
-#then updates letter_guess with letter
 def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
@@ -204,7 +198,7 @@ def enter_next_letter():
         y = input("Guess a letter: ")
         check_guess(y)
 
-#takes the letter and checks against all used letters
+#checks guess for previous use, length & numeric
 def check_guess(y):
     global letter_guess
     if y in used_letters:
@@ -218,7 +212,8 @@ def check_guess(y):
         enter_next_letter()
     else:
         letter_guess = y
-        print(letter_guess)
+        add_to_used_letters()#prints for testing
+        print(letter_guess)#for testing
         check_true()
 
 
@@ -285,15 +280,7 @@ def game_start_input():
             print("Try again my friend!")
 
 ## Displays game elements
-def load_game():
-
-    # DONE function that generates a word in 'magic_word'
-    # DONE function that generates guess display word from magic word
-    # DONE function that listens to the 'guess'
-    # function that steps the index of 'graphic' if wrong
-    # function that updates 'wrong_guesses' with wrong letters
-    # DONE function that updates 'magic_word'
-    
+def load_game():    
     random_word()
 
     magic_word,magic_word_list,magic_word_length = random_word()
