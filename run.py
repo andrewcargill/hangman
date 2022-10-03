@@ -208,14 +208,6 @@ def enter_next_letter():
         y = input("Guess a letter: ")
         check_letter_guess(y)
 
-#checks letter is a single letter
-#def one_character_check(input):
-#    if len(input) == 1:
-#        (print("yes"))
-#    else:
-#        print("no")
-
-
 #takes the letter and checks against all used letters
 def check_letter_guess(y):
     global letter_guess
@@ -224,6 +216,9 @@ def check_letter_guess(y):
         enter_next_letter()
     elif len(y) > 1:
         print("Slow down my friend... guess one letter at a time!")
+        enter_next_letter()
+    elif y.isnumeric() == True:
+        print("Hint: There's no numbers in the word!")
         enter_next_letter()
     else:
         letter_guess = y
