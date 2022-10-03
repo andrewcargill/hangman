@@ -89,7 +89,7 @@ MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -
     print(game_start_graphic)
 
 ## Rules of the game
-def enter_name():
+def rules():
     print("THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD!")
     print("BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR HARRY!")
     print("GOOD LUCK.\n")
@@ -100,6 +100,9 @@ word_bank = ["ramble", "tan", "pick", "run", "distance", "today", "thanks", "pla
 
 #A blank list that will show any correct letters
 guess_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
+
+#default_list for new games
+default_list = ["- ", "- ", "- ", "- ", "- ", "- ", "- ", "- "]
 
 #Word as displayed to user
 game_word_display =[]
@@ -220,32 +223,40 @@ def hangman_stepper():
     global hangman_int
     hangman_int = hangman_int+1
     
-# Start game input   
-def game_start_input():
-    while True:
-        game_start = input("To start: Enter 'E' for easy or 'H' for hard: ")
-        if game_start.lower() == "h":
-            print("lets go!")
-            begin_game = load_game()
-            return True
-        elif game_start.lower() == "e":
-            print("you choose easy game!")
-        else:
-            print("Try again my friend!")
+def welcome_screen():
+    game_start()
+    rules()
+    y = input("Press 'return' start\n")
+    print("\n")
+    print("Ok, so you've read the rules...")
+    print("Now to decide which kind of word to guess")
+    choose_game()
+
+def choose_game():
+    enter = input("Type 'A' for Animals or 'C' for Colors: ")
+    check_game_input(enter)
+
+def check_game_input(x):
+    if x.lower() == "a":
+        load_game()
+    elif x.lower() == "c":
+        print("Colors game is loading...")
+    else:
+        print("Try again my friend!")
+        choose_game()
 
 ## Displays game elements
-def load_game():    
+def load_game():
+    global hangman_int
+    global guess_list
+    guess_list = default_list
+    hangman_int = 0 
+
     random_word()  
-    graphic = HANGMAN
-
-    ##PRINTS FIRST GRAPHIC
-    print(graphic[0])
-
+    print(HANGMAN[0])
     ##UPDATES GLOBAL 'ANSWER'
     line_break = "\n"
     word_text = "Here's the word to guess:    "
-    #global answer
-    #answer = magic_word.upper() #for testing
     print("TESTING this is the magic_word:  " + answer) #for testing
     print(line_break + word_text + line_break)
     print(answer_word_list)#for testing
@@ -259,9 +270,7 @@ def load_game():
 """
 This functions starts the game
 """
-game_start()
-enter_name()
-game_start_input()
+welcome_screen()
 
 
 
