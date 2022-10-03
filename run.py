@@ -58,21 +58,43 @@ HANGMAN = ['''
        |     -   - 
     #==#==#''']
 
-
-
 game_start_graphic = '''
+——————  W E L C O M E   T O   H A R R Y ' S  —————————
 
--------------------- W E L C O M E   T O   H A R R Y ' S ------------------
+HHH      HHH      AAA      NNN       NNN      GGGGG
+HHH      HHH    AAA AAA    NNN N     NNN    GGG    GGG
+HHH      HHH   AAA   AAA   NNN  N    NNN  GGG
+HHHHHHHHHHHH  AAAAAAAAAAA  NNN   N   NNN  GGG    
+HHH      HHH  AAA     AAA  NNN    N  NNN  GGG    GGGGG
+HHH      HHH  AAA     AAA  NNN     N NNN   GGG     GGG
+HHH      HHH  AAA     AAA  NNN      NNNN    GGGGGGG
 
- HH    HH     AAAA     NNn   NN    GGGGG    MMm  mMM     AAAA     NNn   NN
- HH    HH    A    A    NN n  NN   GG        MM mm MM    A    A    NN n  NN   
- HHHHHHHH   AAAAAAAA   NN  n NN  GG   GGG   MM    MM   AAAAAAAA   NN  n NN       
- HH    HH   AA    AA   NN   nNN   GG   GG   MM    MM   AA    AA   NN   nNN 
- HH    HH   AA    AA   NN    NN    GGGGG    MM    MM   AA    AA   NN    NN
+MMM      MMM      AAA      NNN       NNN     _ _ _ _
+MMMM    MMMM    AAA AAA    NNN N     NNN    |       |
+MMM M  M MMM   AAA   AAA   NNN  N    NNN    |       0
+MMM  MM  MMM  AAAAAAAAAA   NNN   N   NNN    |      /|\  
+MMM      MMM  AAA    AAA   NNN    N  NNN    |       |
+MMM      MMM  AAA    AAA   NNN     N NNN    |      / \ 
+MMM      MMM  AAA    AAA   NNN      NNNN    |     -   -  
+                                            |
+'''
 
-#==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#
 
-\n'''
+#game_start_graphic = '''
+#
+#-------------------- W E L C O M E   T O   H A R R Y ' S ------------------
+#
+# HH    HH     AAAA     NNn   NN    GGGGG    MMm  mMM     AAAA     NNn   NN
+# HH    HH    A    A    NN n  NN   GG        MM mm MM    A    A    NN n  NN   
+# HHHHHHHH   AAAAAAAA   NN  n NN  GG   GGG   MM    MM   AAAAAAAA   NN  n NN       
+# HH    HH   AA    AA   NN   nNN   GG   GG   MM    MM   AA    AA   NN   nNN 
+# HH    HH   AA    AA   NN    NN    GGGGG    MM    MM   AA    AA   NN    NN
+#
+##==#==#==#==#==#==#==#==  CREATED BY ANDREW CARGILL  #==#==#==#==#==#==#==#
+#
+#\n'''
+
+
 
 first_guess_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
@@ -160,31 +182,22 @@ def create_game_word_display(x):
         game_word_display.append("- ")
 
 #checks if guessed letter is in the word
-#if it is - updates game_word_display
-#if not - updates hangman index & adds to bad guesses
+#if true: updates game word display with letter
+#if false: updates hangman index & adds to bad guesses
 def check_true():
     if letter_guess in answer_word_list:
         update_game_word_display()
         game_loop_display()
-    #    print(type_for_game_header())
-    #    print(HANGMAN[hangman_int]) 
-    #    print("\n")
-    #    print(" WORD TO GUESS:  " + list_to_string(game_word_display))
-    #    print("\n")
-    #    print(" WRONG GUESSES: " + list_to_string(bad_guesses))
-    #    print("\n") 
         print(" Well done! '" + letter_guess + "' was in the word.")
         enter_next_letter() 
     else:
         hangman_stepper() 
         add_to_bad_guesses()
         game_loop_display()
-    #    print(HANGMAN[hangman_int]) 
-         
-    #    print(game_word_display) 
         print(" Unlucky... '" + letter_guess + "' wasn't in the word.")
         enter_next_letter() 
 
+# Prints updated display after each guess
 def game_loop_display():
     print(type_for_game_header())
     print(HANGMAN[hangman_int]) 
@@ -195,12 +208,13 @@ def game_loop_display():
     print("\n") 
 
 
-#Adds a correct letter to good guesses list
+#Adds letter guessed to a list
 def add_to_used_letters():
     global used_letters
     used_letters.append(letter_guess.upper())
     print(used_letters)#for testing
 
+#adds wrong guesses to a list
 def add_to_bad_guesses():
     global bad_guesses
     bad_guesses.append(letter_guess.upper())
@@ -208,8 +222,8 @@ def add_to_bad_guesses():
     print(bad_guesses)#for testing
 
 
-#checks for end of game (word is fully guessed)
-#asks for next letter
+#checks for end of game
+#asks user for next guess
 def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
