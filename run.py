@@ -162,7 +162,7 @@ used_letters =[]
 
 def random_word():
     """
-    Generates a random word & stores words to relevant variables
+    Generates a random word & stores word to relevant variables
     """
     global answer_word_list
     global answer
