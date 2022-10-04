@@ -82,6 +82,7 @@ game_start_graphic = '''
 
 first_guess_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
+
                                                                      \ | /   
     @@                                 _ _ _ _            $         -  @  - 
    @@@@                               |                  €€€         / | \ 
@@ -96,6 +97,7 @@ first_guess_graphic = '''
 
 win_graphic ='''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
+
                                                                      \ | /   
     @@                                 _ _ _ _            $         -  @  - 
    @@@@                               |                  €€€         / | \ 
@@ -254,7 +256,7 @@ def enter_next_letter():
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
         print(win_graphic)
-        print(" YOU SAVED HARRY! The answer was " + answer + "!!!")
+        print(" YOU SAVED HARRY! The answer was " + answer + "!!!\n")
         print(" Would you like to play again?")
         play_again()
     elif hangman_int == 6:
