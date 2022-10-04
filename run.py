@@ -367,7 +367,6 @@ def load_game():
     bad_guesses =[]
     used_letters=[]
     random_word()  
-    print("TESTING this is the magic_word:  " + answer) #for testing
     line_break = "\n"
     print(first_guess_graphic)
     print(type_for_game_header())
