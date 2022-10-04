@@ -5,7 +5,7 @@ Each step of the way the play reads and then responds to text on the screen to t
 
 Currently, the player can choose from either colour or animal words to guess, this will be expanded with a future update.
 
-INSERT IMAGE
+![]()
 
 ## Features
 ***
@@ -15,7 +15,7 @@ INSERT IMAGE
     - To help the player slowly understand that this is a 'keyboard' based game, the player is asked to press 'return' to start
     - Intentionally, at this stage the player can press any key combination to enter the game. No error message will be shown. As we do not want to disconnect with the players interest.
 
-(insert welcome screen image)
+![Welcome Graphic](assets/images/readme_welcome_graphic.jpg)
 
 - Player chooses game type
     - Friendly, lowercase, text is presented to the user to welcome them to the game. Throughout the game lowercase text is used to represent the games 'voice' to the player. The character of the game is fun, friendly and positive. 
@@ -23,6 +23,7 @@ INSERT IMAGE
     Along with asking the player to select a game, we are training the player further on how the actual game will be played. The player will need to read the text and then respond accordingly.
 
 (insert game-type image)
+![]()
 
 - New game start screen
     - A image representing a small village with a church, house and tree is displayed. This image helps the player imagine a place, back in time, where a hanging might have taken place.
@@ -32,6 +33,7 @@ INSERT IMAGE
     - Uppercase represents game information and lowercase represents the game guiding the player.
 
 (insert first question image)
+![]()
 
 - Correct Guesses
     - As the player tests various letters the displayed screen is consistent. 
@@ -41,6 +43,7 @@ INSERT IMAGE
     - The player is congratulated. 
 
 (insert correct guess image)
+![]()
 
 - Incorrect Guesses
     - As with the correct answers, the displayed screen is consistent.
@@ -49,6 +52,7 @@ INSERT IMAGE
     - The player shown an 'unlucky' message and asked for their next guess.
 
 (insert incorrect guess image)
+![]()
 
 - Error messages
     - The game picks up if a player enters the same letter twice, more than one letter at a time or a numeric character.
@@ -56,6 +60,7 @@ INSERT IMAGE
     - Error messages can easily turn a player off from a game. In this cases fun and positive wording is used to create a more positive reaction for the player. They are kindly reminded to take note of the message and to take their time in choosing their next guess.
 
 (insert error messages image)
+![]()
 
 - End screen: Player lost
     - Once the player has reached 6 wrong guesses the end screen is shown
@@ -64,6 +69,7 @@ INSERT IMAGE
     - The player can either start a new game or exit to the home screen.
 
 (insert end screen lost image)
+![]()
 
 - End Screen: Player won
     - Once the player has completed the word an end screen is shown
@@ -72,6 +78,7 @@ INSERT IMAGE
     - Like with the 'player lost' end screen, the player can either play again or head back to the home screen.
 
 (insert image of end screen win)
+![]()
 
 ### Features Left to Implement
 - Random response to correct or incorrect answers
