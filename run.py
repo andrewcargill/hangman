@@ -124,7 +124,7 @@ lost_graphic = '''
     ################€€€€€€                  €€€€€€€
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
 '''
-## Rules of the game
+# Rules of the game
 def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
     print(" BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!\n")
@@ -159,15 +159,6 @@ bad_guesses =[]
 
 #all used letters
 used_letters =[]
-
-def code_checker():
-    """
-    Remove before Deploy - Used for debugging
-    """
-    print("Game word display = " + list_to_string(game_word_display))
-    print("Answer word list  " + list_to_string(answer_word_list))
-    print("letter guess" + letter_guess)
-    print("used letters" + list_to_string(used_letters))
 
 def random_word():
     """
@@ -362,6 +353,7 @@ def check_game_input(x):
 def load_game():
     """
     Re-sets all global variables
+    Called random function to generate new word
     Loads the game start screen
     """
     global hangman_int
@@ -374,9 +366,7 @@ def load_game():
     answer_word_list =[]
     bad_guesses =[]
     used_letters=[]
-    #generates new word a populates relevant variables
     random_word()  
-    #First Display
     print("TESTING this is the magic_word:  " + answer) #for testing
     line_break = "\n"
     print(first_guess_graphic)
