@@ -248,7 +248,7 @@ def enter_next_letter():
         play_again()
     elif hangman_int == 6:
         print(lost_graphic)
-        print(" R.I.P Harry!")
+        print(" R.I.P Harry! The answer was " + answer + "!")
         print(" Maybe next time!... Would you like to play again?")
         play_again()
     else: 
