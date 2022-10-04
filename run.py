@@ -381,9 +381,9 @@ def type_for_game_header():
     Reminds player what type of word
     """
     if animal_game == True:
-        return(" TYPE OF WORD: A N I M A L")
+        return(" TYPE OF WORD: ANIMAL")
     else:
-        return(" TYPE OF WORD: C O L O U R")
+        return(" TYPE OF WORD: COLOUR")
 
 def list_to_string(list):
     """
