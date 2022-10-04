@@ -131,9 +131,11 @@ def rules():
 
 
 # this is where all words are stored  
-animal_words = ["bull", "cow", "duck", "mouse", "cat", "dog", "horse", "goat", "tiger"]
+animal_words = ["bull", "cow", "goat", "mouse", "chicken", 
+"cat", "tiger", "lion", "sheep", "dog", "horse", "fish", "shark", "rabbit", "rat"]
 
-color_words = ["blue", "red", "purple", "grey", "pink", "orange", "black", "white"]
+color_words = ["blue", "red", "purple", "grey", "pink",
+ "orange", "black", "white", "green", "yellow", "white", "brown", "grey"]
 
 #Used to select game questions
 animal_game = True
@@ -272,13 +274,28 @@ def check_guess(y):
         add_to_used_letters()
         check_true()
 
+#Stores the index's of the letter in the answer
+def update_game_word_display():
+    all_indexes =[]
+    for i in range(0, len(answer_word_list)):
+        if answer_word_list[i] == letter_guess:
+            all_indexes.append(i)
+        else: 
+            pass
+    add_letters_to_gw_display(all_indexes)
+
+#updates the game word display
+def add_letters_to_gw_display(all_indexes):
+    for x in all_indexes:
+        game_word_display[x] = letter_guess
+
 
 #Adds guessed letter to user_word_display
 #Returns as a string
-def update_game_word_display():
-    global game_word_display
-    letter_index = answer_word_list.index(letter_guess) #Finds index - 
-    game_word_display[letter_index] = letter_guess.upper() # updates display_word - 
+#def update_game_word_display():
+#    global game_word_display
+#    letter_index = answer_word_list.index(letter_guess) #Finds index - 
+#    game_word_display[letter_index] = letter_guess.upper() # updates display_word - 
     
 
 #Increases index of hangman variable
