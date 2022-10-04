@@ -1,9 +1,9 @@
 # Harry's Hangman
-Harry's hangman is an educational english learning game for young people and adults. The game takes the player on a journey to try and save Harry's life by guessing letters to complete a mystery word.
+Harry's hangman is an educational learning game for young people and adults wanting to improve, or have fun with, their English. The game takes the player on a journey to try and save Harry by guessing letters to complete a mystery word.
 
-Each step of the way the play reads and then responds to text on the screen to try and complete the mission. Lovely custom graphics help to keep the player engaged with the game and keep them coming back for more. 
+Each step of the way the play reads and then responds to text on the screen to try and complete the mission. Lovely custom graphics help to build an imaginary world and keep the player engaged with the game. 
 
-Currently, the player can choose from either colour or animal words to guess, this will be expanded with a future update.
+The player can choose to guess from either colour or animal words.
 
 ![](assets/images/readme_main_image.jpg)
 
@@ -11,31 +11,31 @@ Currently, the player can choose from either colour or animal words to guess, th
 ***
 - Welcome screen
     - A vibarent image that displays the name of the game
-    - The instruction are in uppercase to represent text that should be read  
+    - The instructions are in uppercase to represent text that should be read  
     - To help the player slowly understand that this is a 'keyboard' based game, the player is asked to press 'return' to start
-    - Intentionally, at this stage the player can press any key combination to enter the game. No error message will be shown. As we do not want to disconnect with the players interest.
+    - Intentionally, at this stage the player can press any key combination to enter the game. No error message will be shown. We do not want the player to disconnect from the game.
 
 ![Welcome Graphic](assets/images/readme_welcome_graphic.jpg)
 
 - Player chooses game type
-    - Friendly, lowercase, text is presented to the user to welcome them to the game. Throughout the game lowercase text is used to represent the games 'voice' to the player. The character of the game is fun, friendly and positive. 
-    - At this stage the player must choose one of two options. The player must enter their choice correctly, if entered incorrectly the game will show a message asking them to try again.
-    Along with asking the player to select a game, we are training the player further on how the actual game will be played. The player will need to read the text and then respond accordingly.
+    - Friendly lowercase-text is presented to the user to welcome them to the game. Throughout the game lowercase text is used to represent the games 'voice' to the player. The character of the game is fun, friendly and positive. 
+    - At this stage the player can choose one of two options. The player must enter their choice correctly, if entered incorrectly the game will show a message asking them to try again.
+    Along with asking the player to select a game, we are training the player on how the actual game will be played. Going forwards the player will need to read the text and then respond accordingly.
 
 
 ![Game Type](assets/images/Readme_game_type.jpg)
 
 - New game start screen
-    - A image representing a small village with a church, house and tree is displayed. This image helps the player imagine a place, back in time, where a hanging might have taken place.
-    - The type of word is displayed to help remind the player of their game choice.
-    - The word to guess is clearly displayed, with dashes '-' used to instead of the letters.
+    - A image representing a small village with a church, house and tree is displayed. This image helps the player imagine a place, back in time, where a hanging might have taken place. A little gruesome, but the fun feel to the game counteracts that feeling.
+    - The type of word is displayed to help remind the player of kind of word they need to find.
+    - The word to guess is clearly displayed, with dashes '-' replacing the letters of the word.
     - The game asks the player for their first guess
-    - Uppercase represents game information and lowercase represents the game guiding the player.
+    - Uppercase represents game information and lowercase represents the text that is guiding the player.
 
 ![First Question](assets/images/readme_first_question.jpg)
 
 - Correct Guesses
-    - As the player tests various letters the displayed screen is consistent. 
+    - As the player plays the game the displayed screen is consistent. 
     - The hangman graphic shown. 
     - On a correct answer the letter is added to the guess word.
     - Wrong guesses are shown to remind the player of previous guesses.
@@ -47,35 +47,35 @@ Currently, the player can choose from either colour or animal words to guess, th
 - Incorrect Guesses
     - As with the correct answers, the displayed screen is consistent.
     - For an incorrect answer the hangman graphic builds an extra section of the figure.
-    - The incorrect guess is shown in the wrong guesses display.
-    - The player shown an 'unlucky' message and asked for their next guess.
+    - The incorrect guess is added to the list of wrong guesses.
+    - The player is shown an 'unlucky' message and asked for their next guess.
 
 ![Incorrect Answer](assets/images/readme_wrong_guess.jpg)
 
 - Error messages
-    - The game picks up if a player enters the same letter twice, more than one letter at a time or a numeric character.
+    - The game detects if a player enters the same letter twice, more than one letter at a time or a numeric character.
     - For each error the player is shown a unique message.
-    - Error messages can easily turn a player off from a game. In this cases fun and positive wording is used to create a more positive reaction for the player. They are kindly reminded to take note of the message and to take their time in choosing their next guess.
+    - Error messages can easily turn a player off from a game. In this cases fun and positive wording is used to create a less negative feeling for the player. They are kindly reminded to take note of the message and to take their time in choosing their next guess.
 
 ![Error Messages](assets/images/readme_error_messages.jpg)
 
 - End screen: Player lost
-    - Once the player has reached 6 wrong guesses the end screen is shown
+    - If the player has 6 wrong guesses an end screen is shown.
     - A large graphic is displayed, showing a tombstone, that links to the start image.
-    - The message one the screen encourages the player to play again.
+    - The message encourages the player to play again.
     - The player can either start a new game or exit to the home screen.
 
 ![Game Lost](assets/images/readme_lost.jpg)
 
 - End Screen: Player won
-    - Once the player has completed the word an end screen is shown
+    - If player has completed the word, within 6 wrong guess, an end screen is shown
     - A large graphic is displayed showing a happy Harry thanking the player.
     - The message on the screen congratulates the player
     - Like with the 'player lost' end screen, the player can either play again or head back to the home screen.
 
 ![Game Won](assets/images/readme_won.jpg)
 
-### Features Left to Implement
+### Future Features
 - Random response to correct or incorrect answers
     - A wide range of responses would make the game engaging for longer periods.
 - More word catagories
@@ -93,7 +93,7 @@ This game works as intended. Having viewed players of various ages interacting w
 
 The use of text and graphics helps the game function very well and the communication level feels right for the target audience.
 
-Harry's Hangman was build in a way that code testing was carried out at each stage of it's development. Features were're added systematically, which allowed for focused testing before developing the game further. 
+Harry's Hangman was built in a such way that code could be tested at each stage of the games development. Features were're added systematically, which allowed for focused testing before developing the game further. 
 
 Once 'live' every step of the game was further tested through running processes repeatedly to ensure of a consistent and predictable result. Below are some of the tests carried out:
 
@@ -109,11 +109,11 @@ Once 'live' every step of the game was further tested through running processes 
 
 ### Validator testing
 
-No validation has been carried out on this python code as the validator (pep8online.com) website was not working at the time of writing this document.
+No validation has been carried out on the python code as the validator (pep8online.com) website was not working at the time of writing this document.
 
 ### Unfixed bugs
 
-There were no bugs found when running the game within GitPod.
+No bugs were found when running the game within GitPod.
 
 The game is stable when played via Heroku, but I have experienced the odd game 'freeze' during testing. I think this must be an error in the platform rather than the code, as the actions that caused the freezes are not repeatable.
 
