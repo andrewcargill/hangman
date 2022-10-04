@@ -161,15 +161,20 @@ bad_guesses =[]
 #all used letters
 used_letters =[]
 
-#used in development of game
+
 def code_checker():
+    """
+    Remove before Deploy - Used for debugging
+    """
     print("Game word display = " + list_to_string(game_word_display))
     print("Answer word list  " + list_to_string(answer_word_list))
     print("letter guess" + letter_guess)
     print("used letters" + list_to_string(used_letters))
 
-#Generates a random word and creates a list of word letters
 def random_word():
+    """
+    Generates a random word & stores words to relevant variables
+    """
     global answer_word_list
     global answer
     magic_word = random.choice(game_words_selector())
@@ -179,25 +184,30 @@ def random_word():
         answer_length = len(answer_word_list)
     create_game_word_display(answer_length)
 
-#Selects words based on players choice
 def game_words_selector():
+    """
+    Selects game type
+    """
     if animal_game == True:
         return animal_words
     else:
         return color_words
 
-        
-#Creates a list of the word without letters
 def create_game_word_display(x):
+    """
+    Creates a blanked version of the word
+    """
     global game_word_display
     game_start_graphic = []
     for i in range(x):
         game_word_display.append("- ")
 
-#checks if guessed letter is in the word
-#if true: updates game word display with letter
-#if false: updates hangman index & adds to bad guesses
 def check_true():
+    """
+    Checks players guess is in the word
+    if true: triggers update of 'game word display'
+    if false: updates hangman index & adds letter to bad guesses
+    """
     if letter_guess in answer_word_list:
         update_game_word_display()
         game_loop_display()
@@ -210,8 +220,10 @@ def check_true():
         print(" Unlucky... '" + letter_guess + "' wasn't in the word.")
         enter_next_letter() 
 
-# Prints updated display after each guess
 def game_loop_display():
+    """
+    Prints updated display ready for players next guess
+    """
     print(type_for_game_header())
     print(HANGMAN[hangman_int]) 
     print("\n")
@@ -220,20 +232,25 @@ def game_loop_display():
     print(" WRONG GUESSES: " + list_to_string(bad_guesses))
     print("\n") 
 
-#Adds letter guessed to a list
 def add_to_used_letters():
+    """
+    Adds current guess letter to used_letters list
+    """
     global used_letters
     used_letters.append(letter_guess.upper())
 
-
-#adds wrong guesses to a list
 def add_to_bad_guesses():
+    """
+    Adds wrong guesses to bad_guesses list
+    """
     global bad_guesses
     bad_guesses.append(letter_guess.upper())
 
-#checks for end of game
-#asks user for next guess
 def enter_next_letter():
+    """
+    Checks for end of game
+    Else displays inputs for next guess
+    """
     check = [x.upper() for x in answer_word_list]
     if check == game_word_display:
         print(win_graphic)
@@ -250,15 +267,22 @@ def enter_next_letter():
         check_guess(y)
 
 def play_again():
+    """
+    On End of game
+    Presents player with option to play again or return to home
+    """
     x = input(" press 'Y' for yes or 'Return' to head home: ")
     if x.lower() == "y":
         choose_game()
     else:
         welcome_screen()
 
-#checks guess for previous use, length & numeric
-#Adds to used_letters if new letter is guessed
 def check_guess(y):
+    """
+    Checks guess for length & content
+    Checks guess against previous guesses
+    else sends for storing & checking
+    """
     global letter_guess
     if y.upper() in used_letters:
         print(" Ooops... You've already used that letter!")
@@ -274,8 +298,10 @@ def check_guess(y):
         add_to_used_letters()
         check_true()
 
-#Stores the index's of the letter in the answer
 def update_game_word_display():
+    """
+    Takes a good letter guess and finds out where it appears in the answer
+    """
     all_indexes =[]
     for i in range(0, len(answer_word_list)):
         if answer_word_list[i] == letter_guess:
@@ -284,26 +310,24 @@ def update_game_word_display():
             pass
     add_letters_to_gw_display(all_indexes)
 
-#updates the game word display
 def add_letters_to_gw_display(all_indexes):
+    """
+    Updates game_word_display
+    """
     for x in all_indexes:
         game_word_display[x] = letter_guess
 
-
-#Adds guessed letter to user_word_display
-#Returns as a string
-#def update_game_word_display():
-#    global game_word_display
-#    letter_index = answer_word_list.index(letter_guess) #Finds index - 
-#    game_word_display[letter_index] = letter_guess.upper() # updates display_word - 
-    
-
-#Increases index of hangman variable
 def hangman_stepper():
+    """
+    Increases hangman index variable
+    """
     global hangman_int
     hangman_int = hangman_int+1
     
 def welcome_screen():
+    """
+    Loads the game graphic and shows the rules
+    """
     print(game_start_graphic)
     rules()
     y = input(" Press 'return' start ")
@@ -314,10 +338,18 @@ def welcome_screen():
     choose_game()
 
 def choose_game():
+    """
+    Input for type of game
+    Sends input for checking
+    """
     enter = input(" Type 'A' for Animals or 'C' for Colours: ")
     check_game_input(enter)
 
 def check_game_input(x):
+    """
+    Checks game type input and starts game
+    else asks player to try again
+    """
     global animal_game
     if x.lower() == "a":
         animal_game = True
@@ -329,8 +361,11 @@ def check_game_input(x):
         print(" Try again my friend!\n")
         choose_game()
 
-# Resets games global variables
 def load_game():
+    """
+    Re-sets all global variables
+    Loads the game start screen
+    """
     global hangman_int
     global answer_word_list
     global bad_guesses
@@ -354,15 +389,19 @@ def load_game():
     print(" Let's go!... Nervous? It's time to choose the first letter.")
     enter_next_letter()
 
-#prints type of word to guess
 def type_for_game_header():
+    """
+    Reminds player what type of word
+    """
     if animal_game == True:
         return(" TYPE OF WORD: A N I M A L")
     else:
         return(" TYPE OF WORD: C O L O U R")
 
-#Turns a list into a string
 def list_to_string(list):
+    """
+    Returns a string from a list
+    """
     list_to_print = ""
     for x in list:
         list_to_print += " " + x
