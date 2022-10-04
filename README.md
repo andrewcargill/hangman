@@ -73,4 +73,90 @@ INSERT IMAGE
 
 (insert image of end screen win)
 
+### Features Left to Implement
+- Random response to correct or incorrect answers
+    - A wide range of responses would make the game enjoyable and engaging for longer periods.
+- More word catagories
+    - Transport
+    - Countries
+    - body parts
+    - Clothes
+    - Kitchen items
+    - Sports
+
+## Testing
+***
+
+This game works as intended. Having viewed players of various ages interacting with the game I can confidently say that the product delivers as intended. 
+
+The use of text and graphics helps the game function very well and the communication level feels right for the target audience.
+
+Harry's Hangman was build in a way that code testing was carried out at each stage of it's development. Features were're added systematically, which allowed for focused testing before developing the game further. 
+
+Once 'live' every step of the game was further tested through running processes repeatedly to ensure of a consistent and predictable result. Below are some of the tests carried out:
+
+- wrong input on game choice option
+- uppercase and lowercase inputs
+- long strings as inputs
+- repeated letters
+- guessing all letters correctly
+- guessing all letter incorrectly
+- mix of correct and incorrect guesses
+- running new game repeatedly to test random word generator
+- short time between inputs
+
+### Validator testing
+
+No validation has been carried out on this python code as the validator (pep8online.com) website was not working at the time of writing this document.
+
+### Unfixed bugs
+
+There were no bugs found when running the game within GitPod.
+
+The game is stable when played via Heroku, but I have experienced the odd game 'freeze' during testing. I think this must be an error in the platform rather than the code, as the actions that caused the freezes are not repeatable.
+
+## Deployment
+***
+The game is deployed through Heroku.com. The following steps were taken:
+- Create new app in Heroku
+- Within settings add Python and Node.js to 'Framework'
+- Within deploy
+    - Deployment method = GitHub (link account)
+    - App connected = select the correct repository
+    - Click on 'Deploy Branch' to deploy
+
+The live link to the game can be found here:  [harry-hangman.herokuapp.com](https://harry-hangman.herokuapp.com/)
+
+## Credits
+***
+I have worked alone for this project and all of the code is my own unless stated. 
+
+I created all the artwork and graphics used in this game.
+
+I referenced the code institute 'Project 3: Walkthrough' and a number of websites to help me in completing this game. They are listed below:
+
+- Reference for Python lists: [w3C](https://www.w3schools.com/python/python_lists_comprehension.asp)
+- Understanding lists and indexes: [Guru99](https://www.guru99.com/python-list-index.html)
+- Modifying lists [Datatofish](https://datatofish.com/modify-list-python/)
+- List comprehension: [Realpython.com](https://realpython.com/list-comprehension-python/)
+- Check if list is empty: [Flexiple](https://flexiple.com/python/check-if-list-is-empty-python/)
+- Working with empty variables: [Eyehunts.com](https://tutorial.eyehunts.com/python/if-a-variable-is-empty-python-example-code/#:~:text=Print%20True%20if%20the%20variable,0%2C%20and%20the%20None%20value
+)
+- Printing Lists[Decalage.info](https://www.decalage.info/en/python/print_list)
+- Checking if something exists in a list: [Stechies.com](https://www.stechies.com/check-item-exists-list/)
+- Modify global list from within a function: [Stackoverflow](https://stackoverflow.com/questions/31435603/modify-global-list-inside-a-function)
+- How to use global variables: [Thispointer](https://thispointer.com/python-how-to-use-global-variables-in-a-function/)
+- Increment and decrement operators: [Pythonguides](https://pythonguides.com/increment-and-decrement-operators-in-python/#:~:text=In%20python%2C%20if%20you%20want,a%20variable%20value%20by%201.&text=After%20writing%20the%20above%20code,is%20incremented%20by%20%E2%80%9C1%E2%80%9D
+)
+- String to list: [Simplilearn](https://www.simplilearn.com/tutorials/python-tutorial/list-to-string-in-python)
+- String numbers: [Nkmk.me](https://note.nkmk.me/en/python-str-num-determine/)
+- Check error from Heroku: [Stackoverflow.com](https://stackoverflow.com/questions/5552555/unicodedecodeerror-invalid-continuation-byte)
+- Counting letters in string: [Codeacademy](https://discuss.codecademy.com/t/python-how-to-count-number-of-letters-in-a-string/78055)
+- Adding to a list: [Digitalocean](https://www.digitalocean.com/community/tutorials/python-add-to-list)
+- Truncate a list: [Geeksforgeeks.org](https://www.geeksforgeeks.org/python-truncate-a-list/)
+- Convert string to list: [Geeksforgeeks.org](https://www.geeksforgeeks.org/python-program-convert-string-list/)
+- split string into list of characters: [Geekforgeeks.org](https://www.geeksforgeeks.org/python-split-string-into-list-of-characters/)
+- Replacing values in a list: [Geeksforgeeks.org](https://www.geeksforgeeks.org/how-to-replace-values-in-a-list-in-python/#:~:text=We%20can%20replace%20values%20inside,new%20value%20using%20list%20slicing)
+- Replace item in a list: [Careerkarma.com](https://careerkarma.com/blog/python-replace-item-in-list/)
+- Calling functions: [Pythonbasics.org](https://pythonbasics.org/multiple-return/#:~:text=As%20you%20already%20know%20a,directly%20from%20the%20function%20call)
 

@@ -79,7 +79,6 @@ game_start_graphic = '''
 --------------  CODED BY ANDREW CARGILL  --------------                                             
 '''
 
-
 first_guess_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
 
@@ -130,8 +129,6 @@ def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
     print(" BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!\n")
 
-
-
 # this is where all words are stored  
 animal_words = ["bull", "cow", "goat", "mouse", "chicken", 
 "cat", "tiger", "lion", "sheep", "dog", "horse", "fish", "shark", "rabbit", "rat"]
@@ -162,7 +159,6 @@ bad_guesses =[]
 
 #all used letters
 used_letters =[]
-
 
 def code_checker():
     """
