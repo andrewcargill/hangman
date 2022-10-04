@@ -5,7 +5,7 @@ Each step of the way the play reads and then responds to text on the screen to t
 
 Currently, the player can choose from either colour or animal words to guess, this will be expanded with a future update.
 
-![]()
+![](assets/images/readme_main_image.jpg)
 
 ## Features
 ***
@@ -22,8 +22,8 @@ Currently, the player can choose from either colour or animal words to guess, th
     - At this stage the player must choose one of two options. The player must enter their choice correctly, if entered incorrectly the game will show a message asking them to try again.
     Along with asking the player to select a game, we are training the player further on how the actual game will be played. The player will need to read the text and then respond accordingly.
 
-(insert game-type image)
-![]()
+
+![Game Type](assets/images/Readme_game_type.jpg)
 
 - New game start screen
     - A image representing a small village with a church, house and tree is displayed. This image helps the player imagine a place, back in time, where a hanging might have taken place.
@@ -32,8 +32,7 @@ Currently, the player can choose from either colour or animal words to guess, th
     - The game asks the player for their first guess
     - Uppercase represents game information and lowercase represents the game guiding the player.
 
-(insert first question image)
-![]()
+![First Question](assets/images/readme_first_question.jpg)
 
 - Correct Guesses
     - As the player tests various letters the displayed screen is consistent. 
@@ -42,8 +41,8 @@ Currently, the player can choose from either colour or animal words to guess, th
     - Wrong guesses are shown to remind the player of previous guesses.
     - The player is congratulated. 
 
-(insert correct guess image)
-![]()
+
+![Correct Answer](assets/images/readmen_correct_guess.jpg)
 
 - Incorrect Guesses
     - As with the correct answers, the displayed screen is consistent.
@@ -51,16 +50,14 @@ Currently, the player can choose from either colour or animal words to guess, th
     - The incorrect guess is shown in the wrong guesses display.
     - The player shown an 'unlucky' message and asked for their next guess.
 
-(insert incorrect guess image)
-![]()
+![Incorrect Answer](assets/images/readme_wrong_guess.jpg)
 
 - Error messages
     - The game picks up if a player enters the same letter twice, more than one letter at a time or a numeric character.
     - For each error the player is shown a unique message.
     - Error messages can easily turn a player off from a game. In this cases fun and positive wording is used to create a more positive reaction for the player. They are kindly reminded to take note of the message and to take their time in choosing their next guess.
 
-(insert error messages image)
-![]()
+![Error Messages](assets/images/readme_error_messages.jpg)
 
 - End screen: Player lost
     - Once the player has reached 6 wrong guesses the end screen is shown
@@ -68,8 +65,7 @@ Currently, the player can choose from either colour or animal words to guess, th
     - The message one the screen encourages the player to play again.
     - The player can either start a new game or exit to the home screen.
 
-(insert end screen lost image)
-![]()
+![Game Lost](assets/images/readme_lost.jpg)
 
 - End Screen: Player won
     - Once the player has completed the word an end screen is shown
@@ -77,12 +73,11 @@ Currently, the player can choose from either colour or animal words to guess, th
     - The message on the screen congratulates the player
     - Like with the 'player lost' end screen, the player can either play again or head back to the home screen.
 
-(insert image of end screen win)
-![]()
+![Game Won](assets/images/readme_won.jpg)
 
 ### Features Left to Implement
 - Random response to correct or incorrect answers
-    - A wide range of responses would make the game enjoyable and engaging for longer periods.
+    - A wide range of responses would make the game engaging for longer periods.
 - More word catagories
     - Transport
     - Countries
