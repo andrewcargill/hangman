@@ -226,6 +226,7 @@ def game_loop_display():
     """
     Prints updated display ready for players next guess
     """
+    print("\n")
     print(type_for_game_header())
     print(HANGMAN[hangman_int])
     print("\n")
@@ -269,7 +270,6 @@ def enter_next_letter():
         play_again()
     else:
         y = input(" Guess a letter: ")
-        print("\n")
         check_guess(y)
 
 
