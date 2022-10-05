@@ -1,5 +1,6 @@
 import random
 
+
 HANGMAN = ['''
         _ _ _ _
        |       |
@@ -94,7 +95,7 @@ first_guess_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
     '''
 
-win_graphic ='''
+win_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
 
                                                                      \ | /   
@@ -108,6 +109,7 @@ win_graphic ='''
                                    #==#==#    -   -        
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=    
     '''
+
 lost_graphic = '''
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
                           _________________                                  
@@ -124,41 +126,48 @@ lost_graphic = '''
     ################€€€€€€                  €€€€€€€
 #==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#==#=
 '''
-# Rules of the game
+
+
 def rules():
     print(" THE RULES ARE SIMPLE... YOU JUST NEED TO GUESS THE WORD")
-    print(" BUT, IF YOU MAKE 6 WRONG GUESSES THEN IT'S THE END FOR POOR HARRY!\n")
+    rules = " BUT, IF YOU MAKE 6 WRONG GUESSES "\
+            "THEN IT'S THE END FOR POOR HARRY!\n"
+    print(rules)
 
-# this is where all words are stored  
-animal_words = ["bull", "cow", "goat", "mouse", "chicken", 
-"cat", "tiger", "lion", "sheep", "dog", "horse", "fish", "shark", "rabbit", "rat"]
+
+animal_words = ["bull", "cow", "goat", "mouse", "chicken",
+                "cat", "tiger", "lion", "sheep", "dog", "horse",
+                "fish", "shark", "rabbit", "rat"]
+
 
 color_words = ["blue", "red", "purple", "grey", "pink",
- "orange", "black", "white", "green", "yellow", "white", "brown", "grey"]
+               "orange", "black", "white", "green", "yellow",
+               "white", "brown", "grey"]
 
-#Used to select game questions
+
 animal_game = True
 
-#Word as displayed to user
+
 game_word_display = []
 
-#answer in list form
+
 answer_word_list = []
 
-#displays the current letter guesses
+
 letter_guess = ""
 
-#The word currently being used
-answer =""
 
-#index for hangman image
+answer = ""
+
+
 hangman_int = 0
 
-#list of bad guesses
-bad_guesses =[]
 
-#all used letters
-used_letters =[]
+bad_guesses = []
+
+
+used_letters = []
+
 
 def random_word():
     """
@@ -173,14 +182,16 @@ def random_word():
         answer_length = len(answer_word_list)
     create_game_word_display(answer_length)
 
+
 def game_words_selector():
     """
     Selects game type
     """
-    if animal_game == True:
+    if animal_game:
         return animal_words
     else:
         return color_words
+
 
 def create_game_word_display(x):
     """
@@ -190,6 +201,7 @@ def create_game_word_display(x):
     game_start_graphic = []
     for i in range(x):
         game_word_display.append("- ")
+
 
 def check_true():
     """
@@ -201,25 +213,27 @@ def check_true():
         update_game_word_display()
         game_loop_display()
         print(" Well done! '" + letter_guess + "' was in the word.")
-        enter_next_letter() 
+        enter_next_letter()
     else:
-        hangman_stepper() 
+        hangman_stepper()
         add_to_bad_guesses()
         game_loop_display()
         print(" Unlucky... '" + letter_guess + "' wasn't in the word.")
-        enter_next_letter() 
+        enter_next_letter()
+
 
 def game_loop_display():
     """
     Prints updated display ready for players next guess
     """
     print(type_for_game_header())
-    print(HANGMAN[hangman_int]) 
+    print(HANGMAN[hangman_int])
     print("\n")
     print(" WORD TO GUESS:  " + list_to_string(game_word_display))
     print("\n")
     print(" WRONG GUESSES: " + list_to_string(bad_guesses))
-    print("\n") 
+    print("\n")
+
 
 def add_to_used_letters():
     """
@@ -228,12 +242,14 @@ def add_to_used_letters():
     global used_letters
     used_letters.append(letter_guess.upper())
 
+
 def add_to_bad_guesses():
     """
     Adds wrong guesses to bad_guesses list
     """
     global bad_guesses
     bad_guesses.append(letter_guess.upper())
+
 
 def enter_next_letter():
     """
@@ -251,9 +267,11 @@ def enter_next_letter():
         print(" R.I.P Harry! The answer was " + answer + "!")
         print(" Maybe next time!... Would you like to play again?")
         play_again()
-    else: 
+    else:
         y = input(" Guess a letter: ")
+        print("\n")
         check_guess(y)
+
 
 def play_again():
     """
@@ -265,6 +283,7 @@ def play_again():
         choose_game()
     else:
         welcome_screen()
+
 
 def check_guess(y):
     """
@@ -279,7 +298,7 @@ def check_guess(y):
     elif len(y) > 1:
         print(" Slow down my friend... guess one letter at a time.")
         enter_next_letter()
-    elif y.isnumeric() == True:
+    elif y.isnumeric():
         print(" Hint: There's no numbers in the word!")
         enter_next_letter()
     else:
@@ -287,17 +306,19 @@ def check_guess(y):
         add_to_used_letters()
         check_true()
 
+
 def update_game_word_display():
     """
     Takes a good letter guess and finds out where it appears in the answer
     """
-    all_indexes =[]
+    all_indexes = []
     for i in range(0, len(answer_word_list)):
         if answer_word_list[i] == letter_guess:
             all_indexes.append(i)
-        else: 
+        else:
             pass
     add_letters_to_gw_display(all_indexes)
+
 
 def add_letters_to_gw_display(all_indexes):
     """
@@ -306,13 +327,15 @@ def add_letters_to_gw_display(all_indexes):
     for x in all_indexes:
         game_word_display[x] = letter_guess
 
+
 def hangman_stepper():
     """
     Increases hangman index variable
     """
     global hangman_int
     hangman_int = hangman_int+1
-    
+
+
 def welcome_screen():
     """
     Loads the game graphic and shows the rules
@@ -326,6 +349,7 @@ def welcome_screen():
     print("\n")
     choose_game()
 
+
 def choose_game():
     """
     Input for type of game
@@ -333,6 +357,7 @@ def choose_game():
     """
     enter = input(" Type 'A' for Animals or 'C' for Colours: ")
     check_game_input(enter)
+
 
 def check_game_input(x):
     """
@@ -350,6 +375,7 @@ def check_game_input(x):
         print(" Try again my friend!\n")
         choose_game()
 
+
 def load_game():
     """
     Re-sets all global variables
@@ -361,12 +387,12 @@ def load_game():
     global bad_guesses
     global used_letters
     global game_word_display
-    hangman_int = 0 
+    hangman_int = 0
     game_word_display = []
-    answer_word_list =[]
-    bad_guesses =[]
-    used_letters=[]
-    random_word()  
+    answer_word_list = []
+    bad_guesses = []
+    used_letters = []
+    random_word()
     line_break = "\n"
     print(first_guess_graphic)
     print(type_for_game_header())
@@ -376,14 +402,17 @@ def load_game():
     print(" Let's go!... Nervous? It's time to choose the first letter.")
     enter_next_letter()
 
+
 def type_for_game_header():
     """
     Reminds player what type of word
     """
-    if animal_game == True:
-        return(" TYPE OF WORD: ANIMAL")
+    if animal_game:
+        text = " TYPE OF WORD: ANIMAL"
     else:
-        return(" TYPE OF WORD: COLOUR")
+        text = " TYPE OF WORD: COLOUR"
+    return text
+
 
 def list_to_string(list):
     """
@@ -394,11 +423,8 @@ def list_to_string(list):
         list_to_print += " " + x
     return list_to_print
 
+
 """
 This functions starts the game
 """
 welcome_screen()
-
-
-
-
