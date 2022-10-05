@@ -115,7 +115,17 @@ PIP3 validation was carried out via the GitPod PIP3 plugin. The code shows no er
 
 No bugs were found when running the game within GitPod.
 
-The game is stable when played via Heroku, but I have experienced the odd game 'freeze' during testing. I think this must be an error in the platform rather than the code, as the actions that caused the freezes are not repeatable.
+The game is stable when played via Heroku, but I have experienced the odd game 'freeze' during testing. My conclusion is that this must be an error in the platform rather than the code, as the actions that caused the freezes are not repeatable. Below are the investigation steps taken:
+- Ran the game 60+ times in GitPod - no errors or freezes
+- Ran the live-game 10-20 times on Firefox, brave and safari browser - could not get game to freeze
+- Ran the live-game over 60+ times on google chrome browser - some sporadic freezing (maybe 5-6 times). Below I have documented a selection to show the random nature of the bug.
+    - froze once after selecting 'run program'
+    - froze once when 'I' entered
+    - froze once while waiting for a player input
+    - froze once on end screen
+- Spoke with a Tutor who checked my code and Heroku. He also checked with colleagues if this was a known issue (it wasn't). The tutor confirmed my thinking that this is most probably a platform issue rather that code related.
+- Checked on 'Slack' to see if previous projects had come across the same problem. Nothing found.
+
 
 ## Deployment
 ***
