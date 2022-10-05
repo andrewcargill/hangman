@@ -109,7 +109,7 @@ Once 'live' every step of the game was further tested through running processes 
 
 ### Validator testing
 
-No validation has been carried out on the python code as the validator (pep8online.com) website was not working at the time of writing this document.
+PIP3 validation was carried out via the GitPod PIP3 plugin. The code shows no errors.
 
 ### Unfixed bugs
 
